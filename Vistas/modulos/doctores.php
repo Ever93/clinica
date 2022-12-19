@@ -121,8 +121,20 @@ if($_SESSION["rol"] != "Secretaria"){
 
                                 <option>Seleccionar...</option>
 
-                                <option value="Cardiologo">Cardiologo</option>
-                                <option value="Psicologia">Psicologia</option>
+                                <?php
+
+                                $columna = null;
+                                $valor = null;
+
+                                $resultado = ConsultoriosC::VerConsultoriosC($columna, $valor);
+
+                                foreach ($resultado as $key => $value){
+
+                                    echo '<option value="'.$value["id"].'">'.$value["nombre"].'</option>';
+
+                                }
+
+                                ?>
 
                             </select>
 
