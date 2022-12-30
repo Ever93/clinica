@@ -12,8 +12,8 @@ session_start();
   <title>Centro Medico</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-
   <!-- Bootstrap 3.3.7 -->
+  <link rel="icon" type="" href="Vistas/img/baston.png">
   <link rel="stylesheet" href="http://localhost/clinica/Vistas/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="http://localhost/clinica/Vistas/bower_components/font-awesome/css/font-awesome.min.css">
@@ -25,6 +25,9 @@ session_start();
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="http://localhost/clinica/Vistas/dist/css/skins/_all-skins.min.css">
 
+  <!--Data tables-->
+  <link rel="stylesheet" href="http://localhost/clinica/Vistas/bower_components/datatables.net-bs/css/dataTables.bootstrap.css">
+  <link rel="stylesheet" href="http://localhost/clinica/Vistas/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -61,7 +64,7 @@ if(isset($_GET["url"])){
 
   $url = explode("/", $_GET["url"]);
 
-  if($url[0] == "inicio" || $url[0] == "salir" || $url[0] == "perfil-Secretaria" || $url[0] == "perfil-S" || $url[0] == "consultorios" || $url[0] == "editarC" || $url[0] == "doctores"){
+  if($url[0] == "inicio" || $url[0] == "salir" || $url[0] == "perfil-Secretaria" || $url[0] == "perfil-S" || $url[0] == "consultorios" || $url[0] == "editarC" || $url[0] == "doctores" || $url[0] == "pacientes"){
 
     include "modulos/".$url[0].".php";
 
@@ -99,15 +102,13 @@ if(isset($_GET["url"])){
 
 ?>
 
-  <!-- =============================================== -->
-
-  <!-- Left side column. contains the sidebar -->
  
 
-  <!-- =============================================== -->
 
-  <!-- Content Wrapper. Contains page content -->
-  
+
+
+
+
 
 <!-- ./wrapper -->
 
@@ -122,7 +123,20 @@ if(isset($_GET["url"])){
 <!-- AdminLTE App -->
 <script src="http://localhost/clinica/Vistas/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="http://localhost/clinica/Vistas/dist/js/demo.js"></script>
+
+
+
+
+<!--Data Tables-->
+<script src="http://localhost/clinica/Vistas/bower_components/datatables.net/js/jquery.dataTables.js"></script>
+<script src="http://localhost/clinica/Vistas/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="http://localhost/clinica/Vistas/bower_components/datatables.net-bs/js/dataTables.bootstrap.js"></script>
+<script src="http://localhost/clinica/Vistas/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<!--<script src="http://localhost/clinica/Vistas/dist/js/demo.js"></script>-->
+
+<script src="http://localhost/clinica/Vistas/js/doctores.js"></script>
+
+
 <script>
   $(document).ready(function () {
     $('.sidebar-menu').tree()

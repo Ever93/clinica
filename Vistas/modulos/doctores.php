@@ -40,6 +40,7 @@ if($_SESSION["rol"] != "Secretaria"){
                     <thead>
 
                         <tr>
+
                             <th>N°</th>
                             <th>Apellido</th>
                             <th>Nombre</th>
@@ -48,14 +49,73 @@ if($_SESSION["rol"] != "Secretaria"){
                             <th>Usuario</th>
                             <th>Contraseña</th>
                             <th>Editar / Borrar</th>
+
                         </tr>
 
                     </thead>
 
                     <tbody>
 
-        
-                        
+                        <?php
+
+                        $columna = null;
+                        $valor = null;
+
+                        $resultado = DoctoresC::VerDoctoresC($columna, $valor);
+
+                        foreach ($resultado as $key => $value) {
+
+                            echo '<tr>
+
+                                <td>'.($key+1).'</td>
+                                <td>'.$value["apellido"].'</td>
+                                <td>'.$value["nombre"].'</td>';
+
+                                if($value["foto"] == ""){
+
+                                    echo '<td><img src="Vistas/img/defecto.png" width="40px"></td>';
+
+                                }else{
+
+                                    echo '<td><img src="'.$value["foto"].'" width="40px"></td>';
+
+
+                                }
+
+
+                                $columna = "id";
+                                $valor = $value["id_consultorio"];
+
+                                $consultorio = ConsultoriosC::VerConsultoriosC($columna, $valor);
+
+                                echo '<td>'.$consultorio[0]["nombre"].'</td>
+
+                                <td>'.$value["usuario"].'</td>
+
+                                <td>'.$value["clave"].'</td>
+                                
+                                <td>
+
+                                    <div class="btn-group">
+
+                                        
+                                        <button class="btn btn-success EditarDoctor" Did="'.$value["id"].'" data-toggle="modal" data-target="#EditarDoctor"><i class="fa fa-pencil"></i>Editar</button>
+                                        
+                                        <button class="btn btn-danger EliminarDoctor" Did="'.$value["id"].'" imgD="'.$value["foto"].'"><i class="fa fa-times"></i> Borrar</button>
+
+                                        
+
+                                    </div>
+
+                                </td>
+
+                            </tr>';
+
+                        }
+
+                        ?>
+
+
                     </tbody>
 
                 </table>
@@ -77,9 +137,11 @@ if($_SESSION["rol"] != "Secretaria"){
 			
 			<form method="post" role="form">
 
-            <div class="modal-body">
+                <div class="modal-body">
+
+                    <div class="box-body">
 					
-            <div class="form-group">
+                        <div class="form-group">
 							
 							<h2>Apellido:</h2>
 
@@ -140,6 +202,7 @@ if($_SESSION["rol"] != "Secretaria"){
 
                         </div>
 
+
                         <div class="form-group">
 
                             <h2>Usuario:</h2>
@@ -169,10 +232,12 @@ if($_SESSION["rol"] != "Secretaria"){
 
                 </div>
 
+
                 <?php
 
                 $crear = new DoctoresC();
-                $crear -> CrearDoctorV();
+                $crear -> CrearDoctorC();
+
 
                 ?>
 
@@ -184,8 +249,97 @@ if($_SESSION["rol"] != "Secretaria"){
 
 </div>
 
+<div class="modal fade" rol="dialog" id="EditarDoctor">
+	
+	<div class="modal-dialog">
+		
+		<div class="modal-content">
+			
+			<form method="post" role="form">
+				
+				<div class="modal-body">
+					
+					<div class="box-body">
+						
+						<div class="form-group">
+							
+							<h2>Apellido:</h2>
+
+							<input type="text" class="form-control input-lg" id="apellidoE" name="apellidoE" required>
+
+							<input type="hidden" id="Did" name="Did">
+
+						</div>
+
+						<div class="form-group">
+							
+							<h2>Nombre:</h2>
+
+							<input type="text" class="form-control input-lg" id="nombreE" name="nombreE" required>
+
+						</div>
+
+
+						<div class="form-group">
+							
+							<h2>Sexo:</h2>
+
+							<select class="form-control input-lg" name="sexoE" required="">
+								
+								<option id="sexoE"></option>
+
+								<option value="Masculino">Masculino</option>
+								<option value="Femenino">Femenino</option>
+
+							</select>
+
+						</div>
+
+						<div class="form-group">
+							
+							<h2>Usuario:</h2>
+
+							<input type="text" class="form-control input-lg" id="usuarioE" name="usuarioE" required>
+
+						</div>
+
+						<div class="form-group">
+							
+							<h2>Contraseña:</h2>
+
+							<input type="text" class="form-control input-lg" id="claveE" name="claveE" required>
+
+						</div>
+
+					</div>
+
+				</div>
+
+
+				<div class="modal-footer">
+					
+					<button type="submit" class="btn btn-success">Guardar Cambios</button>
+
+					<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+
+				</div>
+
+				<?php
+
+				$actualizar = new DoctoresC();
+				$actualizar -> ActualizarDoctorC();
+
+				?>
+
+			</form>
+
+		</div>
+
+	</div>
+
+</div>
 
 <?php
 
-/* $borrarC = new ConsultoriosC();
-$borrarC -> BorrarConsultorioC(); */
+$borrarD = new DoctoresC();
+$borrarD -> BorrarDoctorC();

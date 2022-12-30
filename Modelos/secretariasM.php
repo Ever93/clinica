@@ -65,5 +65,6 @@ class SecretariasM extends ConexionBD{
 
         $pdo -> close();
         $pdo = null;
+        
     }
 }
