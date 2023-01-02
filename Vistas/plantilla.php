@@ -54,6 +54,9 @@ if($_SESSION["rol"] == "Secretaria"){
 
   include "modulos/menuSecretaria.php";
 
+}else if($_SESSION["rol"] == "Paciente"){
+
+  include "modulos/menuPaciente.php";
 }
 
 
@@ -64,7 +67,7 @@ if(isset($_GET["url"])){
 
   $url = explode("/", $_GET["url"]);
 
-  if($url[0] == "inicio" || $url[0] == "salir" || $url[0] == "perfil-Secretaria" || $url[0] == "perfil-S" || $url[0] == "consultorios" || $url[0] == "editarC" || $url[0] == "doctores" || $url[0] == "pacientes"){
+  if($url[0] == "inicio" || $url[0] == "salir" || $url[0] == "perfil-Secretaria" || $url[0] == "perfil-S" || $url[0] == "consultorios" || $url[0] == "editarC" || $url[0] == "doctores" || $url[0] == "pacientes" || $url[0] == "perfil-Paciente" || $url[0] == "perfil-P"){
 
     include "modulos/".$url[0].".php";
 
@@ -88,6 +91,10 @@ if(isset($_GET["url"])){
     }else if($_GET["url"] == "ingreso-Secretaria"){
 
       include "modulos/ingreso-Secretaria.php";
+
+    }else if($_GET["url"] == "ingreso-Paciente"){
+
+      include "modulos/ingreso-Paciente.php";
 
     }
     
@@ -135,6 +142,7 @@ if(isset($_GET["url"])){
 <!--<script src="http://localhost/clinica/Vistas/dist/js/demo.js"></script>-->
 
 <script src="http://localhost/clinica/Vistas/js/doctores.js"></script>
+<script src="http://localhost/clinica/Vistas/js/pacientes.js"></script>
 
 
 <script>

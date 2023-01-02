@@ -56,32 +56,56 @@ if($_SESSION["rol"] != "Secretaria"){
 
                     <tbody>
 
-                        <tr>
+                        <?php
 
-                            <td>1</td>
-                            <td>Valdez</td>
-                            <td>Carlos</td>
-                            <td>567384</td>
-                            <td><img src="Vistas/img/defecto.png" width="40px"></td>
-                            <td>Carl</td>
-                            <td>123</td>
-                                
-                            <td>
+                        $columna = null;
+                        $valor = null;
 
-                                <div class="btn-group">
+                        $resultado = PacientesC::VerPacientesC($columna, $valor);
 
+                        foreach($resultado as $key => $value){
+
+                            echo '<tr>
+
+                                    <td>'.($key+1).'</td>
+                                    <td>'.$value["apellido"].'</td>
+                                    <td>'.$value["nombre"].'</td>
+                                    <td>'.$value["documento"].'</td>';
+
+                                    if($value["foto"] == ""){
+
+                                        echo '<td><img src="Vistas/img/defecto.png" width="40px"></td>';
+
+                                    }else{
+
+                                        echo '<td><img src="'.$value["foto"].'" width="40px"></td>';
+                                    }
+                                    
+
+                                    echo '<td>'.$value["usuario"].'</td>
+                                    <td>'.$value["clave"].'</td>
                                         
-                                    <button class="btn btn-success EditarPaciente" Did="" data-toggle="modal" data-target="#EditarPaciente"><i class="fa fa-pencil"></i>Editar</button>
-                                        
-                                    <button class="btn btn-danger EliminarDoctor" Did="" imgD=""><i class="fa fa-times"></i> Borrar</button>
+                                    <td>
 
-                                        
+                                        <div class="btn-group">
 
-                                </div>
+                                                
+                                            <button class="btn btn-success EditarPaciente" Pid="'.$value["id"].'" data-toggle="modal" data-target="#EditarPaciente"><i class="fa fa-pencil"></i>Editar</button>
+                                                
+                                            <button class="btn btn-danger EliminarPaciente" Pid="'.$value["id"].'" imgP="'.$value["foto"].'"><i class="fa fa-times"></i> Borrar</button>
 
-                            </td>
+                                                
 
-                            </tr>
+                                        </div>
+
+                                    </td>
+
+                                </tr>';
+                        }
+
+                        ?>
+
+                        
 
 
                     </tbody>
@@ -139,7 +163,7 @@ if($_SESSION["rol"] != "Secretaria"){
 
                             <h2>Usuario:</h2>
 
-                            <input type="tex" class="form-control input-lg" name="usuario" required>
+                            <input type="tex" class="form-control input-lg" id="usuario" name="usuario" required>
 
                         </div>
 
@@ -211,7 +235,7 @@ if($_SESSION["rol"] != "Secretaria"){
 
 						</div>
 
-                        <div class="form-group">
+						<div class="form-group">
 							
 							<h2>Documento:</h2>
 
@@ -250,8 +274,8 @@ if($_SESSION["rol"] != "Secretaria"){
 
 				<?php
 
-				//$actualizar = new DoctoresC();
-				//$actualizar -> ActualizarDoctorC();
+				$actualizar = new PacientesC();
+				$actualizar -> ActualizarPacienteC();
 
 				?>
 
@@ -263,7 +287,8 @@ if($_SESSION["rol"] != "Secretaria"){
 
 </div>
 
+
 <?php
 
-//$borrarD = new DoctoresC();
-//$borrarD -> BorrarDoctorC();
+$borrarP = new PacientesC();
+$borrarP -> BorrarPacienteC();

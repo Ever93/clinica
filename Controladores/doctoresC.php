@@ -3,7 +3,7 @@
 class DoctoresC{
 
     //Crear Doctores
-    public function CrearDoctorV(){
+    public function CrearDoctorC(){
 
         if(isset($_POST["rolD"])){
 
