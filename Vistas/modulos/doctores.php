@@ -87,9 +87,10 @@ if($_SESSION["rol"] != "Secretaria"){
                                 $valor = $value["id_consultorio"];
 
                                 $consultorio = ConsultoriosC::VerConsultoriosC($columna, $valor);
-
+                                
+                                //Solucion con indice 0 a Warning: Undefined array key "nombre"
                                 echo '<td>'.$consultorio[0]["nombre"].'</td>
-
+                                
                                 <td>'.$value["usuario"].'</td>
 
                                 <td>'.$value["clave"].'</td>

@@ -24,10 +24,13 @@ session_start();
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="http://localhost/clinica/Vistas/dist/css/skins/_all-skins.min.css">
-
   <!--Data tables-->
   <link rel="stylesheet" href="http://localhost/clinica/Vistas/bower_components/datatables.net-bs/css/dataTables.bootstrap.css">
   <link rel="stylesheet" href="http://localhost/clinica/Vistas/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+
+  <!--Calendario-->
+  <link rel="stylesheet" href="http://localhost/clinica/Vistas/bower_components/fullcalendar/dist/fullcalendar.min.css">
+  <link rel="stylesheet" href="http://localhost/clinica/Vistas/bower_components/fullcalendar/dist/fullcalendar.print.min.css" media="print">
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -67,7 +70,7 @@ if(isset($_GET["url"])){
 
   $url = explode("/", $_GET["url"]);
 
-  if($url[0] == "inicio" || $url[0] == "salir" || $url[0] == "perfil-Secretaria" || $url[0] == "perfil-S" || $url[0] == "consultorios" || $url[0] == "editarC" || $url[0] == "doctores" || $url[0] == "pacientes" || $url[0] == "perfil-Paciente" || $url[0] == "perfil-P"){
+  if($url[0] == "inicio" || $url[0] == "salir" || $url[0] == "perfil-Secretaria" || $url[0] == "perfil-S" || $url[0] == "consultorios" || $url[0] == "editarC" || $url[0] == "doctores" || $url[0] == "pacientes" || $url[0] == "perfil-Paciente" || $url[0] == "perfil-P" || $url[0] == "Ver-consultorios" || $url[0] == "Doctor"){
 
     include "modulos/".$url[0].".php";
 
@@ -139,6 +142,12 @@ if(isset($_GET["url"])){
 <script src="http://localhost/clinica/Vistas/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="http://localhost/clinica/Vistas/bower_components/datatables.net-bs/js/dataTables.bootstrap.js"></script>
 <script src="http://localhost/clinica/Vistas/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+
+<!-- fullCalendar -->
+<script src="http://localhost/clinica/Vistas/bower_components/moment/moment.js"></script>
+<script src="http://localhost/clinica/Vistas/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+<!--Requerimos el scrip para traducir al español el calendario-->
+<script src="http://localhost/clinica/Vistas/bower_components/fullcalendar/dist/locale/es.js"></script>
 <!--<script src="http://localhost/clinica/Vistas/dist/js/demo.js"></script>-->
 
 <script src="http://localhost/clinica/Vistas/js/doctores.js"></script>
@@ -149,6 +158,52 @@ if(isset($_GET["url"])){
   $(document).ready(function () {
     $('.sidebar-menu').tree()
   })
+
+  var date = new Date()
+  var d    = date.getDate(),
+      m    = date.getMonth(),
+      y    = date.getFullYear()
+
+  $('#calendar').fullCalendar({
+
+  //Ocultar los dias que no se pueden sacar turno
+  //Por regla de indice en programacion
+  //0=Domingo, 1=Lunes, 2=Martes, 3=Miercoles, 4=Jueves, 5=Viernes, 6=Sabado
+    hiddenDays: [0,6],
+
+    defaultView: 'agendaWeek',
+
+    dayClick:function(date,jsEvent,viw){
+
+      $('#CitaModal').modal();
+
+      var fecha = date.format();
+      //Las citas seran de una hora
+      var hora2 = ("01:00:00").split(":");
+
+      fecha = fecha.split("T");
+
+      var dia = fecha[0];
+
+      var hora = (fecha[1].split(":"));
+
+      var h1 = parseFloat(hora[0]);
+      var h2 = parseFloat(hora2[0]);
+
+      var horaFinal = h1+h2;
+
+      $('#fechaC').val(dia);
+
+      $('#horaC').val(h1+":00:00");
+
+      $('#fyhIC').val(fecha[0]+" "+h1+":00:00");
+
+      $('#fyhFC').val(fecha[0]+" "+horaFinal+":00:00");
+
+    }
+
+  })
+
 </script>
 </body>
 </html>
