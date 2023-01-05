@@ -26,4 +26,20 @@ class CitasM extends ConexionBD{
 		$pdo = null;
 
 	}
+
+
+    //Mostrar citas agendadas de pacientes
+    static public function VerCitasM($tablaBD){
+
+        $pdo = ConexionBD::cBD()->prepare("SELECT * FROM $tablaBD");
+
+        $pdo -> execute();
+
+        return $pdo -> fetchAll();
+
+        $pdo -> close();
+		$pdo = null;
+
+    }
+    
 }
