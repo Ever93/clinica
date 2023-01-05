@@ -34,5 +34,7 @@ class AdminM extends ConexionBD{
 
         $pdo -> close();
         $pdo = null;
+
     }
+    
 }
