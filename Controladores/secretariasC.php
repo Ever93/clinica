@@ -220,9 +220,17 @@ class SecretariasC{
 
 		}
 
-	} 
+	}
 
 
-	
+    //Mostrar secretarias
+    static public function VerSecretariasC(){
+
+        $tablaBD = "secretarias";
+
+        $resultado = SecretariasM::VerSecretariasM($tablaBD);
+
+        return $resultado;
+    }
 
 }
