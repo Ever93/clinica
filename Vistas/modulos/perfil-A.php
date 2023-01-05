@@ -25,7 +25,7 @@ if($_SESSION["rol"] != "Administrador"){
             
             $editarPerfil = new AdminC();
             $editarPerfil -> EditarPerfilAdminC();
-            //$editarPerfil -> ActualizarPerfilDoctorC();
+            $editarPerfil -> ActualizarPerfilAdminC();
 
             ?>
 
