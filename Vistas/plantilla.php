@@ -60,6 +60,10 @@ if($_SESSION["rol"] == "Secretaria"){
 }else if($_SESSION["rol"] == "Paciente"){
 
   include "modulos/menuPaciente.php";
+
+}else if($_SESSION["rol"] == "Doctor"){
+
+  include "modulos/menuDoctor.php";
 }
 
 
@@ -99,8 +103,13 @@ if(isset($_GET["url"])){
 
       include "modulos/ingreso-Paciente.php";
 
+    }else if($_GET["url"] == "ingreso-Doctor"){
+
+      include "modulos/ingreso-Doctor.php";
+
     }
     
+
 }else{
 
   include "modulos/seleccionar.php";
