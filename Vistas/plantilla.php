@@ -191,7 +191,28 @@ if(isset($_GET["url"])){
 
     defaultView: 'agendaWeek',
 
-    
+    events:[
+            <?php
+            $resultado = CitasC::VerCitasC();
+
+            foreach ($resultado as $key => $value) {
+              
+              if($value["id_doctor"] == substr($_GET["url"], 7)){
+
+                echo '{
+
+                  id: '.$value["id"].',
+                  title: "'.$value["nyaP"].'",
+                  start: "'.$value["inicio"].'",
+                  end: "'.$value["fin"].'"
+                },';
+
+              }
+
+            }
+            
+            ?>
+    ],
 
     dayClick:function(date,jsEvent,viw){
 
