@@ -110,35 +110,39 @@ class DoctoresC{
 	//Inicio de session de doctores
 	public function IngresarDoctorC(){
 
-		if(isset($_POST["usuario-Ing"])){
+			if(isset($_POST["usuario-Ing"])){
+	
+				if(preg_match('/^[a-zA-Z0-9]+$/', $_POST["usuario-Ing"]) && preg_match('/^[a-zA-Z0-9]+$/', $_POST["clave-Ing"])){
+	
+					$tablaBD = "doctores";
+	
+					$datosC = array("usuario"=>$_POST["usuario-Ing"], "clave"=>$_POST["clave-Ing"]);
+	
+					$resultado = DoctoresM::IngresarDoctorM($tablaBD, $datosC);
+	
+					if($resultado["usuario"] == $_POST["usuario-Ing"] && $resultado["clave"] == $_POST["clave-Ing"]){
+	
+	
+						$_SESSION["Ingresar"] = true;
+	
+						$_SESSION["id"] = $resultado["id"];
+						$_SESSION["usuario"] = $resultado["usuario"];
+						$_SESSION["clave"] = $resultado["clave"];
+						$_SESSION["apellido"] = $resultado["apellido"];
+						$_SESSION["nombre"] = $resultado["nombre"];
+						$_SESSION["sexo"] = $resultado["sexo"];
+						$_SESSION["foto"] = $resultado["foto"];
+						$_SESSION["rol"] = $resultado["rol"];
+	
+						echo '<script>
+	
+						window.location = "inicio";
+						</script>';
+	
+					}else{
 
-			if(preg_match('/^[a-zA-Z0-9]+$/', $_POST["usuario-Ing"]) && preg_match('/^[a-zA-Z0-9]+$/', $_POST["clave-Ing"])){
-
-				$tablaBD = "doctores";
-
-				$datosC = array("usuario"=>$_POST["usuario-Ing"], "clave"=>$_POST["clave-Ing"]);
-
-				$resultado = DoctoresM::IngresarDoctorM($tablaBD, $datosC);
-
-				if($resultado["usuario"] == $_POST["usuario-Ing"] && $resultado["clave"] == $_POST["clave-Ing"]){
-
-					$_SESSION["Ingresar"] = true;
-
-					$_SESSION["id"] = $resultado["id"];
-					$_SESSION["usuario"] = $resultado["usuario"];
-					$_SESSION["clave"] = $resultado["clave"];
-					$_SESSION["apellido"] = $resultado["apellido"];
-					$_SESSION["nombre"] = $resultado["nombre"];
-					$_SESSION["sexo"] = $resultado["sexo"];
-					$_SESSION["foto"] = $resultado["foto"];
-					$_SESSION["rol"] = $resultado["rol"];
-
-					echo '<script>
-					
-					window.location = "inicio";
-					
-					</script>';
-				}
+                    echo 'Error al ingresar';
+                }
 
 			}
 
