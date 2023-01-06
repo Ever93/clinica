@@ -155,7 +155,7 @@ if($_SESSION["rol"] != "Administrador"){
 
 							<input type="text" class="form-control input-lg" name="apellido" required>
 
-							<input type="hidden" name="rolD" value="Doctor">
+							<input type="hidden" name="rolS" value="Secretaria">
 
 						</div>
 
@@ -199,8 +199,8 @@ if($_SESSION["rol"] != "Administrador"){
 
                 <?php
 
-                $crear = new DoctoresC();
-                $crear -> CrearDoctorC();
+                $crear = new SecretariasC();
+                $crear -> CrearSecretariaC();
 
 
                 ?>
@@ -216,5 +216,5 @@ if($_SESSION["rol"] != "Administrador"){
 
 <?php
 
-$borrarD = new DoctoresC();
-$borrarD -> BorrarDoctorC();
+//$borrarD = new SecretariasC();
+//$borrarD -> BorrarSecretariaC();
