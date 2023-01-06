@@ -259,4 +259,35 @@ class SecretariasC{
 
 	}
 
+
+    //Borrar Secretarias
+	public function BorrarSecretariaC(){
+
+		if(isset($_GET["Sid"])){
+
+			$tablaBD = "secretarias";
+
+			$id = $_GET["Sid"];
+
+			if($_GET["imgS"] != ""){
+
+				unlink($_GET["imgS"]);
+
+			}
+
+			$resultado = SecretariasM::BorrarSecretariaM($tablaBD, $id);
+
+			if($resultado == true){
+
+				echo '<script>
+
+				window.location = "secretarias";
+				</script>';
+
+			}
+
+		}
+
+	}
+
 }

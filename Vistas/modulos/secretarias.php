@@ -86,7 +86,7 @@ if($_SESSION["rol"] != "Administrador"){
 
                                     <div class="btn-group">
                                         
-                                        <button class="btn btn-danger EliminarDoctor" Did="'.$value["id"].'" imgD="'.$value["foto"].'"><i class="fa fa-times"></i> Borrar</button>
+                                        <button class="btn btn-danger EliminarSecretaria" Sid="'.$value["id"].'" imgS="'.$value["foto"].'"><i class="fa fa-times"></i> Borrar</button>
                                        
                                     </div>
 
@@ -98,32 +98,7 @@ if($_SESSION["rol"] != "Administrador"){
 
                     ?>
 
-                       <tr>
-
-                                <td></td>
-                                <td></td>
-                                <td></td>
-
-                                <td><img src="Vistas/img/defecto.png" width="40px"></td>;
-                                
-                                <td></td>
-
-                                <td></td>
-                                
-                                <td>
-
-                                    <div class="btn-group">
-                                        
-                                        <button class="btn btn-danger EliminarDoctor" Did="" imgD=""><i class="fa fa-times"></i> Borrar</button>
-
-                                        
-
-                                    </div>
-
-                                </td>
-
-                            </tr>
-
+                       
                     </tbody>
 
                 </table>
@@ -216,5 +191,5 @@ if($_SESSION["rol"] != "Administrador"){
 
 <?php
 
-//$borrarD = new SecretariasC();
-//$borrarD -> BorrarSecretariaC();
+$borrarD = new SecretariasC();
+$borrarD -> BorrarSecretariaC();
