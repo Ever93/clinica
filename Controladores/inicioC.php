@@ -103,7 +103,7 @@ class InicioC{
 
 						<h2>Favicon:</h2>
 
-                        <input type="file" name="logo">
+                        <input type="file" name="favicon">
                         <br>
                 
                         <img src="http://localhost/clinica/'.$resultado["favicon"].'" width="200px;">
@@ -121,5 +121,112 @@ class InicioC{
             </form>';
 
     }
+
+
+	//Actualizar contenido de Inicio
+	public function ActualizarInicioC(){
+
+		if(isset($_POST["Iid"])){
+
+			$rutaLogo = $_POST["logoActual"];
+
+			if(isset($_FILES["logo"]["tmp_name"]) && !empty($_FILES["logo"]["tmp_name"])){
+
+				if(!empty($_POST["logoActual"])){
+
+					unlink($_POST["logoActual"]);
+
+				}
+
+				if($_FILES["logo"]["type"] == "image/jpeg"){
+
+					$rutaLogo = "Vistas/img/logo.jpeg";
+
+					$logo = imagecreatefromjpeg($_FILES["logo"]["tmp_name"]);
+					
+					imagejpeg($logo, $rutaLogo);
+
+				}
+
+				if($_FILES["logo"]["type"] == "image/png"){
+
+					$rutaLogo = "Vistas/img/logo.png";
+
+					$logo = imagecreatefrompng($_FILES["logo"]["tmp_name"]);
+					
+					imagepng($logo, $rutaLogo);
+
+				}
+
+			}
+
+
+
+			$rutaFavicon = $_POST["faviconActual"];
+
+			if(isset($_FILES["favicon"]["tmp_name"]) && !empty($_FILES["favicon"]["tmp_name"])){
+
+				if(!empty($_POST["faviconActual"])){
+
+					unlink($_POST["faviconActual"]);
+
+				}
+
+				if($_FILES["favicon"]["type"] == "image/jpeg"){
+
+					$rutaFavicon = "Vistas/img/favicon.jpeg";
+
+					$favicon = imagecreatefromjpeg($_FILES["favicon"]["tmp_name"]);
+					
+					imagejpeg($favicon, $rutaFavicon);
+
+				}
+
+				if($_FILES["favicon"]["type"] == "image/png"){
+
+					$rutaFavicon = "Vistas/img/favicon.png";
+
+					$favicon = imagecreatefrompng($_FILES["favicon"]["tmp_name"]);
+					
+					imagepng($favicon, $rutaFavicon);
+
+				}
+
+			}
+
+
+			$tablaBD = "inicio";
+
+			$datosC = array("id"=>$_POST["Iid"], "intro"=>$_POST["intro"], "horaE"=>$_POST["horaE"], "horaS"=>$_POST["horaS"], "telefono"=>$_POST["telefono"], "correo"=>$_POST["correo"], "direccion"=>$_POST["direccion"], "logo"=>$rutaLogo, "favicon"=>$rutaFavicon);
+
+			$resultado = InicioM::ActualizarInicioM($tablaBD, $datosC);
+
+			if($resultado == true){
+
+				echo '<script>
+
+				window.location = "inicio-editar";
+				</script>';
+
+			}
+
+
+		}
+
+	}
+
+
+	//Controlador Favicon(Iconos Favoritos)
+	public function FaviconC(){
+
+		$tablaBD = "inicio";
+
+		$id = "1";
+
+		$resultado = InicioM::MostrarInicioM($tablaBD, $id);
+
+		echo '<link rel="icon" type="" href="'.$resultado["favicon"].'">';
+
+	}
 
 }
