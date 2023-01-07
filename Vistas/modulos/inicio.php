@@ -12,17 +12,25 @@
 
         $inicio = new InicioC();
         $inicio-> MostrarInicioC();
+
+
+        if($_SESSION["rol"] == "Administrador"){
+
+          echo '<div class="box-footer">
+       
+                  <a href="inicio-editar">
+                    <button class="btn btn-success btn-lg">Editar</button>
+                  </a>
+        
+              </div>';
+        }
+
         ?>
         
         
-        <!-- /.box-body -->
-        <div class="box-footer">
-       
-        <a href="">
-          <button class="btn btn-success btn-lg">Editar</button>
-        </a>
 
-        </div>
+        <!-- /.box-body -->
+        
         <!-- /.box-footer-->
       </div>
       <!-- /.box -->

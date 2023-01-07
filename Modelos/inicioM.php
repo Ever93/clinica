@@ -18,4 +18,5 @@ class InicioM extends ConexionBD{
         $pdo = null;
         
     }
+    
 }
