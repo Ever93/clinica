@@ -12,7 +12,10 @@
         </li>
 
         <li>
-          <a href="http://localhost/clinica/Citas">
+          <?php
+          echo '<a href="http://localhost/clinica/Citas/'.$_SESSION["id"].'">';
+          ?>
+          
             <i class="fa fa-medkit"></i>
             <span>Citas</span>
           </a>
