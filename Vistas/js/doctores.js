@@ -20,6 +20,7 @@ $(".DT").on("click", ".EditarDoctor", function(){
 			$("#Did").val(resultado["id"]);
 			$("#apellidoE").val(resultado["apellido"]);
 			$("#nombreE").val(resultado["nombre"]);
+			$("#telefonoE").val(resultado["telefono"]);
 			$("#usuarioE").val(resultado["usuario"]);
 			$("#claveE").val(resultado["clave"]);
 

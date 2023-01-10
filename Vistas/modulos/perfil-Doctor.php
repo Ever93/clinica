@@ -38,6 +38,7 @@ if($_SESSION["rol"] != "Doctor"){
 							<th>Contraseña</th>
 							<th>Nombre</th>
 							<th>Apellido</th>
+							<th>Teléfono</th>
 							<th>Foto</th>
                             <th>Consultorio</th>
                             <th>Horario</th>

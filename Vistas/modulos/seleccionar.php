@@ -1,7 +1,7 @@
 <section class="content">
 
     <center>
-        <h1>Seleccione como desea ingresar al sistema</h1>
+        <h1><b>Seleccione Modo de Ingreso al Sistema</b></h1>
     </center>
       <!-- Small boxes (Stat box) -->
       <div class="row">
@@ -70,3 +70,22 @@
       <!-- Main row -->
       
     </section>
+
+    <br>
+    
+<style type="text/css">
+body,html{
+height:100%; /*Siempre es necesario cuando trabajamos con alturas*/
+}
+ #inferior{
+color: #FFF;
+background: #000;
+position:absolute; /*El div será ubicado con relación a la pantalla*/
+left:0px; /*A la derecha deje un espacio de 0px*/
+right:0px; /*A la izquierda deje un espacio de 0px*/
+bottom:0px; /*Abajo deje un espacio de 0px*/
+height:50px; /*alto del div*/
+z-index:0;
+ }
+</style>
+<div id="inferior"><center>Copyright &copy; 2023 <a href="https://api.whatsapp.com/send/?phone=595971104575">SmartCenter-Paraguay</a>. Todos los derechos reservados. <b>Version</b> 0.0.1</center></div>

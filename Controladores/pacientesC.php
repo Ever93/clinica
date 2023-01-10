@@ -90,7 +90,7 @@ class PacientesC{
 	}
 
 
-	//Controlador Ingreso de Paciente
+	//Inicion de Session de Pacientes
 	public function IngresarPacienteC(){
 
 		if(isset($_POST["usuario-Ing"])){
@@ -121,7 +121,10 @@ class PacientesC{
 					window.location = "inicio";
 					
 					</script>';
-				}
+				}else{
+
+                    echo 'Error al ingresar';
+                }
 
 			}
 

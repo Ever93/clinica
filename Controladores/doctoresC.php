@@ -9,7 +9,7 @@ class DoctoresC{
 
             $tablaBD = "doctores";
 
-            $datosC = array("rol"=>$_POST["rolD"], "apellido"=>$_POST["apellido"], "nombre"=>$_POST["nombre"], "sexo"=>$_POST["sexo"], "id_consultorio"=>$_POST["consultorio"], "usuario"=>$_POST["usuario"], "clave"=>$_POST["clave"],);
+            $datosC = array("rol"=>$_POST["rolD"], "apellido"=>$_POST["apellido"], "nombre"=>$_POST["nombre"], "telefono"=>$_POST["telefono"], "sexo"=>$_POST["sexo"], "id_consultorio"=>$_POST["consultorio"], "usuario"=>$_POST["usuario"], "clave"=>$_POST["clave"],);
 
             $resultado = DoctoresM::CrearDoctorM($tablaBD, $datosC);
 
@@ -130,6 +130,7 @@ class DoctoresC{
 						$_SESSION["clave"] = $resultado["clave"];
 						$_SESSION["apellido"] = $resultado["apellido"];
 						$_SESSION["nombre"] = $resultado["nombre"];
+						$_SESSION["telefono"] = $resultado["telefono"];
 						$_SESSION["sexo"] = $resultado["sexo"];
 						$_SESSION["foto"] = $resultado["foto"];
 						$_SESSION["rol"] = $resultado["rol"];
@@ -164,7 +165,8 @@ class DoctoresC{
 				<td>'.$resultado["usuario"].'</td>
 				<td>'.$resultado["clave"].'</td>
 				<td>'.$resultado["nombre"].'</td>
-				<td>'.$resultado["apellido"].'</td>';
+				<td>'.$resultado["apellido"].'</td>
+				<td>'.$resultado["telefono"].'</td>';
 
 				if($resultado["foto"] == ""){
 
@@ -221,6 +223,9 @@ class DoctoresC{
 
 							<h2>Apellido:</h2>
 							<input type="text" class="input-lg" name="apellidoPerfil" value="'.$resultado["apellido"].'">
+
+							<h2>Teléfono:</h2>
+							<input type="text" class="input-lg" name="telefonoPerfil" value="'.$resultado["telefono"].'">
 
 							<h2>Usuario:</h2>
 							<input type="text" class="input-lg" name="usuarioPerfil" value="'.$resultado["usuario"].'">
@@ -340,7 +345,7 @@ class DoctoresC{
 
 			$tablaBD = "doctores";
 
-			$datosC = array("id"=>$_POST["Did"], "nombre"=>$_POST["nombrePerfil"], "apellido"=>$_POST["apellidoPerfil"], "usuario"=>$_POST["usuarioPerfil"], "clave"=>$_POST["clavePerfil"], "consultorio"=>$_POST["consultorioPerfil"], "horarioE"=>$_POST["hePerfil"], "horarioS"=>$_POST["hsPerfil"], "foto"=>$rutaImg);
+			$datosC = array("id"=>$_POST["Did"], "nombre"=>$_POST["nombrePerfil"], "apellido"=>$_POST["apellidoPerfil"], "telefono"=>$_POST["telefonoPerfil"], "usuario"=>$_POST["usuarioPerfil"], "clave"=>$_POST["clavePerfil"], "consultorio"=>$_POST["consultorioPerfil"], "horarioE"=>$_POST["hePerfil"], "horarioS"=>$_POST["hsPerfil"], "foto"=>$rutaImg);
 
 			$resultado = DoctoresM::ActualizarPerfilDoctorM($tablaBD, $datosC);
 

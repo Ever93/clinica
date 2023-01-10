@@ -2,7 +2,7 @@
 
 class SecretariasC{
 
-    //Ingreso Secretaria
+    //Inicio de Session Secretarias
     public function IngresarSecretariaC(){
 
         if(isset($_POST["usuario-Ing"])){
