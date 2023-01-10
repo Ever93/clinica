@@ -221,12 +221,42 @@ if(isset($_GET["url"])){
                   end: "'.$value["fin"].'"
 
                 },';
+
               }
 
             }
             
             ?>
     ],
+
+
+    <?php
+
+
+    if($_SESSION["rol"] == "Paciente"){
+
+      $columna = "id";
+      $valor = substr($_GET["url"], 7);
+
+      $resultado = DoctoresC::DoctorC($columna, $valor);
+
+      echo 'scrollTime: "'.$resultado["horarioE"].'",
+            minTime: "'.$resultado["horarioE"].'",
+            maxTime: "'.$resultado["horarioS"].'",';
+
+    }elseif ($_SESSION["rol"] == "Doctor") {
+      $columna = "id";
+      $valor = substr($_GET["url"], 6);
+
+      $resultado = DoctoresC::DoctorC($columna, $valor);
+
+      echo 'scrollTime: "'.$resultado["horarioE"].'",
+            minTime: "'.$resultado["horarioE"].'",
+            maxTime: "'.$resultado["horarioS"].'",';
+
+    }
+
+    ?>
 
     dayClick:function(date,jsEvent,viw){
 
