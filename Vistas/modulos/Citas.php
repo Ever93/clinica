@@ -127,7 +127,7 @@ if($_SESSION["id"] != substr($_GET["url"], 6)){
 
                             <h2>Documento:</h2>
 
-                            <input type="text" class="form-control input-lg" name="documentoC" value="">
+                            <input type="text" class="form-control input-lg" name="documentoP" value="">
 
                         </div>
 
@@ -170,7 +170,7 @@ if($_SESSION["id"] != substr($_GET["url"], 6)){
                 <?php
 
                 $enviarC = new CitasC();
-                $enviarC -> EnviarCitaC();
+                $enviarC -> PedirCitaDoctorC();
                 ?>
             </form>
         </div>

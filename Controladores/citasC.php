@@ -34,5 +34,33 @@ class CitasC{
         $resultado = CitasM::VerCitasM($tablaBD);
 
         return $resultado;
+
     }
+
+    //Pedir cita como doctor
+	public function PedirCitaDoctorC(){
+
+		if(isset($_POST["Did"])){
+
+			$tablaBD = "citas";
+
+			$Did = substr($_GET["url"], 6);
+
+			$datosC = array("Did"=>$_POST["Did"], "Cid"=>$_POST["Cid"], "nombreP"=>$_POST["nombreP"], "documentoP"=>$_POST["documentoP"], "fyhIC"=>$_POST["fyhIC"], "fyhFC"=>$_POST["fyhFC"]);
+
+			$resultado = CitasM::PedirCitaDoctorM($tablaBD, $datosC);
+
+			if($resultado == true){
+
+				echo '<script>
+
+				window.location = "Citas/"'.$Did.';
+				</script>';
+
+			}
+
+		}
+
+	}
+    
 }
