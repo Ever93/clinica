@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-01-2023 a las 23:43:35
--- Versión del servidor: 10.4.27-MariaDB
--- Versión de PHP: 8.1.12
+-- Tiempo de generación: 10-01-2023 a las 02:14:15
+-- Versión del servidor: 10.1.38-MariaDB
+-- Versión de PHP: 5.6.40
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -29,12 +30,12 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `administradores` (
   `id` int(11) NOT NULL,
-  `usuario` text NOT NULL,
-  `clave` text NOT NULL,
-  `nombre` text NOT NULL,
-  `apellido` text NOT NULL,
-  `foto` text NOT NULL,
-  `rol` text NOT NULL
+  `usuario` text COLLATE utf8_spanish_ci NOT NULL,
+  `clave` text COLLATE utf8_spanish_ci NOT NULL,
+  `nombre` text COLLATE utf8_spanish_ci NOT NULL,
+  `apellido` text COLLATE utf8_spanish_ci NOT NULL,
+  `foto` text COLLATE utf8_spanish_ci NOT NULL,
+  `rol` text COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
@@ -55,8 +56,8 @@ CREATE TABLE `citas` (
   `id_doctor` int(11) NOT NULL,
   `id_consultorio` int(11) NOT NULL,
   `id_paciente` int(11) NOT NULL,
-  `nyaP` text NOT NULL,
-  `documento` text NOT NULL,
+  `nyaP` text COLLATE utf8_spanish_ci NOT NULL,
+  `documento` text COLLATE utf8_spanish_ci NOT NULL,
   `inicio` datetime NOT NULL,
   `fin` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
@@ -66,7 +67,10 @@ CREATE TABLE `citas` (
 --
 
 INSERT INTO `citas` (`id`, `id_doctor`, `id_consultorio`, `id_paciente`, `nyaP`, `documento`, `inicio`, `fin`) VALUES
-(38, 10, 3, 3, 'Raul Acosta', '5388907', '2023-01-02 08:00:00', '2023-01-02 09:00:00');
+(38, 10, 3, 3, 'Raul Acosta', '5388907', '2023-01-02 08:00:00', '2023-01-02 09:00:00'),
+(39, 9, 3, 3, 'Raul Acosta', '5388907', '2023-01-09 09:00:00', '2023-01-09 10:00:00'),
+(40, 9, 3, 3, 'Raul Acosta', '5388907', '2023-01-10 10:00:00', '2023-01-10 11:00:00'),
+(41, 9, 3, 0, 'Vera Ara', '5381896', '2023-01-12 10:00:00', '2023-01-12 11:00:00');
 
 -- --------------------------------------------------------
 
@@ -76,7 +80,7 @@ INSERT INTO `citas` (`id`, `id_doctor`, `id_consultorio`, `id_paciente`, `nyaP`,
 
 CREATE TABLE `consultorios` (
   `id` int(11) NOT NULL,
-  `nombre` text NOT NULL
+  `nombre` text COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
@@ -98,16 +102,16 @@ INSERT INTO `consultorios` (`id`, `nombre`) VALUES
 CREATE TABLE `doctores` (
   `id` int(11) NOT NULL,
   `id_consultorio` int(11) NOT NULL,
-  `apellido` text NOT NULL,
-  `nombre` text NOT NULL,
-  `foto` text NOT NULL,
-  `usuario` text NOT NULL,
-  `clave` text NOT NULL,
-  `sexo` text NOT NULL,
+  `apellido` text COLLATE utf8_spanish_ci NOT NULL,
+  `nombre` text COLLATE utf8_spanish_ci NOT NULL,
+  `foto` text COLLATE utf8_spanish_ci NOT NULL,
+  `usuario` text COLLATE utf8_spanish_ci NOT NULL,
+  `clave` text COLLATE utf8_spanish_ci NOT NULL,
+  `sexo` text COLLATE utf8_spanish_ci NOT NULL,
   `horarioE` time NOT NULL,
   `horarioS` time NOT NULL,
-  `rol` text NOT NULL,
-  `telefono` text NOT NULL
+  `rol` text COLLATE utf8_spanish_ci NOT NULL,
+  `telefono` text COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
@@ -117,7 +121,7 @@ CREATE TABLE `doctores` (
 INSERT INTO `doctores` (`id`, `id_consultorio`, `apellido`, `nombre`, `foto`, `usuario`, `clave`, `sexo`, `horarioE`, `horarioS`, `rol`, `telefono`) VALUES
 (6, 1, 'Fretes', 'Alan', 'Vistas/img/Doctores/Doc-441.png', 'alan', '12345', 'Masculino', '05:00:00', '08:00:00', 'Doctor', ''),
 (8, 1, 'Julio', 'Halo', '', 'jiu', '124', 'Masculino', '00:00:00', '00:00:00', 'Doctor', ''),
-(9, 9, 'Zaracho', 'Hilda', '', 'doc7', '12340', 'Femenino', '00:00:00', '00:00:00', 'Doctor', ''),
+(9, 3, 'Zaracho', 'Hilda', '', 'doc', '123', 'Femenino', '08:00:00', '16:00:00', 'Doctor', ''),
 (11, 2, 'Sosa', 'Matias', '', 'mati', '123', 'Masculino', '00:00:00', '00:00:00', 'Doctor', '');
 
 -- --------------------------------------------------------
@@ -128,14 +132,14 @@ INSERT INTO `doctores` (`id`, `id_consultorio`, `apellido`, `nombre`, `foto`, `u
 
 CREATE TABLE `inicio` (
   `id` int(11) NOT NULL,
-  `intro` text NOT NULL,
+  `intro` text COLLATE utf8_spanish_ci NOT NULL,
   `horaE` time NOT NULL,
   `horaS` time NOT NULL,
-  `telefono` text NOT NULL,
-  `correo` text NOT NULL,
-  `direccion` text NOT NULL,
-  `logo` text NOT NULL,
-  `favicon` text NOT NULL
+  `telefono` text COLLATE utf8_spanish_ci NOT NULL,
+  `correo` text COLLATE utf8_spanish_ci NOT NULL,
+  `direccion` text COLLATE utf8_spanish_ci NOT NULL,
+  `logo` text COLLATE utf8_spanish_ci NOT NULL,
+  `favicon` text COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
@@ -153,13 +157,13 @@ INSERT INTO `inicio` (`id`, `intro`, `horaE`, `horaS`, `telefono`, `correo`, `di
 
 CREATE TABLE `pacientes` (
   `id` int(11) NOT NULL,
-  `apellido` text NOT NULL,
-  `nombre` text NOT NULL,
-  `documento` text NOT NULL,
-  `foto` text NOT NULL,
-  `usuario` text NOT NULL,
-  `clave` text NOT NULL,
-  `rol` text NOT NULL
+  `apellido` text COLLATE utf8_spanish_ci NOT NULL,
+  `nombre` text COLLATE utf8_spanish_ci NOT NULL,
+  `documento` text COLLATE utf8_spanish_ci NOT NULL,
+  `foto` text COLLATE utf8_spanish_ci NOT NULL,
+  `usuario` text COLLATE utf8_spanish_ci NOT NULL,
+  `clave` text COLLATE utf8_spanish_ci NOT NULL,
+  `rol` text COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
@@ -167,7 +171,7 @@ CREATE TABLE `pacientes` (
 --
 
 INSERT INTO `pacientes` (`id`, `apellido`, `nombre`, `documento`, `foto`, `usuario`, `clave`, `rol`) VALUES
-(2, 'Vera', 'Ara', '844387', '', 'Ale11', '23424', 'Paciente'),
+(2, 'Vera', 'Ara', '5381896', '', 'ara', '321', 'Paciente'),
 (3, 'Acosta', 'Raul', '5388907', '', 'acosta', '1234', 'Paciente'),
 (4, 'Leiser', 'Alan', '23446', '', 'Ale11', '64645', 'Paciente');
 
@@ -179,12 +183,12 @@ INSERT INTO `pacientes` (`id`, `apellido`, `nombre`, `documento`, `foto`, `usuar
 
 CREATE TABLE `secretarias` (
   `id` int(11) NOT NULL,
-  `usuario` text NOT NULL,
-  `clave` text NOT NULL,
-  `nombre` text NOT NULL,
-  `apellido` text NOT NULL,
-  `foto` text NOT NULL,
-  `rol` text NOT NULL
+  `usuario` text COLLATE utf8_spanish_ci NOT NULL,
+  `clave` text COLLATE utf8_spanish_ci NOT NULL,
+  `nombre` text COLLATE utf8_spanish_ci NOT NULL,
+  `apellido` text COLLATE utf8_spanish_ci NOT NULL,
+  `foto` text COLLATE utf8_spanish_ci NOT NULL,
+  `rol` text COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
@@ -254,7 +258,7 @@ ALTER TABLE `administradores`
 -- AUTO_INCREMENT de la tabla `citas`
 --
 ALTER TABLE `citas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT de la tabla `consultorios`
