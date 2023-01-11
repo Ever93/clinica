@@ -30,6 +30,7 @@ $(".DT").on("click", ".EditarPaciente", function(){
 			$("#apellidoE").val(resultado["apellido"]);
 			$("#nombreE").val(resultado["nombre"]);
 			$("#documentoE").val(resultado["documento"]);
+			$("#telefonoE").val(resultado["telefono"]);
 			$("#usuarioE").val(resultado["usuario"]);
 			$("#claveE").val(resultado["clave"]);
 

@@ -44,6 +44,7 @@ if($_SESSION["rol"] != "Administrador"){
                             <th>N°</th>
                             <th>Apellido</th>
                             <th>Nombre</th>
+                            <th>Teléfono</th>
                             <th>Foto</th>
                             <th>Usuario</th>
                             <th>Contraseña</th>
@@ -65,7 +66,8 @@ if($_SESSION["rol"] != "Administrador"){
 
                                 <td>'.($key+1).'</td>
                                 <td>'.$value["apellido"].'</td>
-                                <td>'.$value["nombre"].'</td>';
+                                <td>'.$value["nombre"].'</td>
+                                <td>'.$value["telefono"].'</td>';
 
                                 if($value["foto"] == ""){
 
@@ -139,6 +141,14 @@ if($_SESSION["rol"] != "Administrador"){
 							<h2>Nombre:</h2>
 
 							<input type="text" class="form-control input-lg" name="nombre" required>
+
+						</div>
+
+                        <div class="form-group">
+							
+							<h2>Teléfono:</h2>
+
+							<input type="text" class="form-control input-lg" name="telefono" required>
 
 						</div>
 

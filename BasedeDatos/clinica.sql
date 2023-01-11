@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-01-2023 a las 02:14:15
+-- Tiempo de generación: 11-01-2023 a las 00:46:10
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 5.6.40
 
@@ -104,25 +104,26 @@ CREATE TABLE `doctores` (
   `id_consultorio` int(11) NOT NULL,
   `apellido` text COLLATE utf8_spanish_ci NOT NULL,
   `nombre` text COLLATE utf8_spanish_ci NOT NULL,
+  `telefono` text COLLATE utf8_spanish_ci NOT NULL,
   `foto` text COLLATE utf8_spanish_ci NOT NULL,
   `usuario` text COLLATE utf8_spanish_ci NOT NULL,
   `clave` text COLLATE utf8_spanish_ci NOT NULL,
   `sexo` text COLLATE utf8_spanish_ci NOT NULL,
   `horarioE` time NOT NULL,
   `horarioS` time NOT NULL,
-  `rol` text COLLATE utf8_spanish_ci NOT NULL,
-  `telefono` text COLLATE utf8_spanish_ci NOT NULL
+  `rol` text COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `doctores`
 --
 
-INSERT INTO `doctores` (`id`, `id_consultorio`, `apellido`, `nombre`, `foto`, `usuario`, `clave`, `sexo`, `horarioE`, `horarioS`, `rol`, `telefono`) VALUES
-(6, 1, 'Fretes', 'Alan', 'Vistas/img/Doctores/Doc-441.png', 'alan', '12345', 'Masculino', '05:00:00', '08:00:00', 'Doctor', ''),
-(8, 1, 'Julio', 'Halo', '', 'jiu', '124', 'Masculino', '00:00:00', '00:00:00', 'Doctor', ''),
-(9, 3, 'Zaracho', 'Hilda', '', 'doc', '123', 'Femenino', '08:00:00', '16:00:00', 'Doctor', ''),
-(11, 2, 'Sosa', 'Matias', '', 'mati', '123', 'Masculino', '00:00:00', '00:00:00', 'Doctor', '');
+INSERT INTO `doctores` (`id`, `id_consultorio`, `apellido`, `nombre`, `telefono`, `foto`, `usuario`, `clave`, `sexo`, `horarioE`, `horarioS`, `rol`) VALUES
+(6, 1, 'Fretes', 'Alan', '', 'Vistas/img/Doctores/Doc-441.png', 'alan', '12345', 'Masculino', '05:00:00', '08:00:00', 'Doctor'),
+(8, 1, 'Julio', 'Halo', '', '', 'jiu', '124', 'Masculino', '00:00:00', '00:00:00', 'Doctor'),
+(9, 3, 'Zaracho', 'Hilda', '', '', 'doc', '123', 'Femenino', '08:00:00', '16:00:00', 'Doctor'),
+(11, 2, 'Sosa', 'Matias', '', '', 'mati', '123', 'Masculino', '00:00:00', '00:00:00', 'Doctor'),
+(12, 1, 'Benitez', 'Jose', '0991104575', '', 'jose', '123', 'Masculino', '10:00:00', '17:00:00', 'Doctor');
 
 -- --------------------------------------------------------
 
@@ -270,7 +271,7 @@ ALTER TABLE `consultorios`
 -- AUTO_INCREMENT de la tabla `doctores`
 --
 ALTER TABLE `doctores`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `inicio`
@@ -288,7 +289,7 @@ ALTER TABLE `pacientes`
 -- AUTO_INCREMENT de la tabla `secretarias`
 --
 ALTER TABLE `secretarias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

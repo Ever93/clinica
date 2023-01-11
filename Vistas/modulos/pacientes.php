@@ -45,6 +45,7 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Doctor" && $_SESSION
                             <th>Apellido</th>
                             <th>Nombre</th>
                             <th>Documento</th>
+                            <th>Telefóno</th>
                             <th>Foto</th>
                             <th>Usuario</th>
                             <th>Contraseña</th>
@@ -70,7 +71,8 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Doctor" && $_SESSION
                                     <td>'.($key+1).'</td>
                                     <td>'.$value["apellido"].'</td>
                                     <td>'.$value["nombre"].'</td>
-                                    <td>'.$value["documento"].'</td>';
+                                    <td>'.$value["documento"].'</td>
+                                    <td>'.$value["telefono"].'</td>';
 
                                     if($value["foto"] == ""){
 
@@ -160,6 +162,14 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Doctor" && $_SESSION
 						</div>
 
                         <div class="form-group">
+							
+							<h2>Teléfono:</h2>
+
+							<input type="text" class="form-control input-lg" id="telefono" name="telefono" required>
+
+						</div>
+
+                        <div class="form-group">
 
                             <h2>Usuario:</h2>
 
@@ -240,6 +250,14 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Doctor" && $_SESSION
 							<h2>Documento:</h2>
 
 							<input type="text" class="form-control input-lg" id="documentoE" name="documentoE" required>
+
+						</div>
+
+                        <div class="form-group">
+							
+							<h2>Teléfono:</h2>
+
+							<input type="text" class="form-control input-lg" id="telefonoE" name="telefonoE" required>
 
 						</div>
 

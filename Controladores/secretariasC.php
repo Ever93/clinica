@@ -24,6 +24,7 @@ class SecretariasC{
                     $_SESSION["clave"] = $resultado["clave"];
                     $_SESSION["nombre"] = $resultado["nombre"];
                     $_SESSION["apellido"] = $resultado["apellido"];
+                    $_SESSION["telefono"] = $resultado["telefono"];
                     $_SESSION["foto"] = $resultado["foto"];
                     $_SESSION["rol"] = $resultado["rol"];
 
@@ -63,7 +64,9 @@ class SecretariasC{
 
                 <td>'.$resultado["nombre"].'</td>
 
-                <td>'.$resultado["apellido"].'</td>';
+                <td>'.$resultado["apellido"].'</td>
+
+                <td>'.$resultado["telefono"].'</td>';
 
                 if($resultado["foto"] != ""){
 
@@ -116,6 +119,9 @@ class SecretariasC{
 
                         <h2>Apellido:</h2>
                         <input type="text" class="input-lg" name="apellidoP" value="'.$resultado["apellido"].'">
+
+                        <h2>Teléfono:</h2>
+                        <input type="text" class="input-lg" name="telefonoP" value="'.$resultado["telefono"].'">
 
                         <h2>Usuario:</h2>
                         <input type="text" class="input-lg" name="usuarioP" value="'.$resultado["usuario"].'">
@@ -205,7 +211,7 @@ class SecretariasC{
 
 			$tablaBD = "secretarias";
 
-			$datosC = array("id"=>$_POST["idP"], "usuario"=>$_POST["usuarioP"], "apellido"=>$_POST["apellidoP"], "nombre"=>$_POST["nombreP"], "clave"=>$_POST["claveP"], "foto"=>$rutaImg);
+			$datosC = array("id"=>$_POST["idP"], "usuario"=>$_POST["usuarioP"], "apellido"=>$_POST["apellidoP"], "nombre"=>$_POST["nombreP"], "telefono"=>$_POST["telefonoP"], "clave"=>$_POST["claveP"], "foto"=>$rutaImg);
 
 			$resultado = SecretariasM::ActualizarPerfilSecretariaM($tablaBD, $datosC);
 
@@ -242,7 +248,7 @@ class SecretariasC{
 
 			$tablaBD = "secretarias";
 
-			$datosC = array("nombre"=>$_POST["nombre"], "apellido"=>$_POST["apellido"], "usuario"=>$_POST["usuario"], "clave"=>$_POST["clave"], "rol"=>$_POST["rolS"]);
+			$datosC = array("nombre"=>$_POST["nombre"], "apellido"=>$_POST["apellido"], "telefono"=>$_POST["telefono"], "usuario"=>$_POST["usuario"], "clave"=>$_POST["clave"], "rol"=>$_POST["rolS"]);
 
 			$resultado = SecretariasM::CrearSecretariaM($tablaBD, $datosC);
 

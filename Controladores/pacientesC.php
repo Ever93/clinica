@@ -9,7 +9,7 @@ class PacientesC{
 
             $tablaBD = "pacientes";
 
-            $datosC = array("apellido"=>$_POST["apellido"], "nombre"=>$_POST["nombre"], "documento"=>$_POST["documento"], "usuario"=>$_POST["usuario"], "clave"=>$_POST["clave"], "rol"=>$_POST["rolP"]);
+            $datosC = array("apellido"=>$_POST["apellido"], "nombre"=>$_POST["nombre"], "documento"=>$_POST["documento"], "telefono"=>$_POST["telefono"], "usuario"=>$_POST["usuario"], "clave"=>$_POST["clave"], "rol"=>$_POST["rolP"]);
 
             $resultado = PacientesM::CrearPacienteM($tablaBD, $datosC);
 
@@ -72,7 +72,7 @@ class PacientesC{
 
 			$tablaBD = "pacientes";
 
-			$datosC = array("id"=>$_POST["Pid"], "apellido"=>$_POST["apellidoE"], "nombre"=>$_POST["nombreE"], "documento"=>$_POST["documentoE"], "usuario"=>$_POST["usuarioE"], "clave"=>$_POST["claveE"],);
+			$datosC = array("id"=>$_POST["Pid"], "apellido"=>$_POST["apellidoE"], "nombre"=>$_POST["nombreE"], "documento"=>$_POST["documentoE"], "telefono"=>$_POST["telefonoE"], "usuario"=>$_POST["usuarioE"], "clave"=>$_POST["claveE"],);
 
 			$resultado = PacientesM::ActualizarPacienteM($tablaBD, $datosC);
 
@@ -113,6 +113,7 @@ class PacientesC{
 					$_SESSION["apellido"] = $resultado["apellido"];
 					$_SESSION["nombre"] = $resultado["nombre"];
 					$_SESSION["documento"] = $resultado["documento"];
+					$_SESSION["telefono"] = $resultado["telefono"];
 					$_SESSION["foto"] = $resultado["foto"];
 					$_SESSION["rol"] = $resultado["rol"];
 
@@ -147,7 +148,9 @@ class PacientesC{
 				<td>'.$resultado["usuario"].'</td>
 				<td>'.$resultado["clave"].'</td>
 				<td>'.$resultado["nombre"].'</td>
-				<td>'.$resultado["apellido"].'</td>';
+				<td>'.$resultado["apellido"].'</td>
+				<td>'.$resultado["documento"].'</td>
+				<td>'.$resultado["telefono"].'</td>';
 
 				if($resultado["foto"] == ""){
 
@@ -159,7 +162,7 @@ class PacientesC{
 				}
 
 				
-				echo '<td>'.$resultado["documento"].'</td>
+				echo '
 				<td>
 					<a href="http://localhost/clinica/perfil-P/'.$resultado["id"].'">
 						<button class="btn btn-success"><i class="fa fa-pencil"></i></button>
@@ -198,6 +201,9 @@ class PacientesC{
 						
 						<h2>Documento:</h2>
 						<input type="text" class="input-lg" name="documentoPerfil" value="'.$resultado["documento"].'">
+
+						<h2>Telefono:</h2>
+						<input type="text" class="input-lg" name="telefonoPerfil" value="'.$resultado["telefono"].'">
 
 					</div>
 
@@ -272,7 +278,7 @@ class PacientesC{
 
 			$tablaBD = "pacientes";
 
-			$datosC = array("id"=>$_POST["Pid"], "nombre"=>$_POST["nombrePerfil"], "apellido"=>$_POST["apellidoPerfil"], "usuario"=>$_POST["usuarioPerfil"], "clave"=>$_POST["clavePerfil"], "documento"=>$_POST["documentoPerfil"], "foto"=>$rutaImg);
+			$datosC = array("id"=>$_POST["Pid"], "nombre"=>$_POST["nombrePerfil"], "apellido"=>$_POST["apellidoPerfil"], "telefono"=>$_POST["telefonoPerfil"], "usuario"=>$_POST["usuarioPerfil"], "clave"=>$_POST["clavePerfil"], "documento"=>$_POST["documentoPerfil"], "foto"=>$rutaImg);
 
 			$resultado = PacientesM::ActualizarPerfilPacienteM($tablaBD, $datosC);
 

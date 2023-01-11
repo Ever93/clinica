@@ -38,6 +38,7 @@ if($_SESSION["rol"] != "Secretaria"){
 							<th>Contraseña</th>
 							<th>Nombre</th>
 							<th>Apellido</th>
+							<th>Teléfono</th>
 							<th>Foto</th>
 							<th>Editar</th>
 
