@@ -21,17 +21,13 @@ if($_SESSION["rol"] != "Administrador"){
 
             <div class="box-body">
 
-            <?php 
-            
-            $editarInicio = new InicioC();
-            $editarInicio -> EditarInicioC();
-            $editarInicio -> ActualizarInicioC();
+                <?php 
+                
+                $editarInicio = new InicioC();
+                $editarInicio -> EditarInicioC();
+                $editarInicio -> ActualizarInicioC();
 
-            ?>
-
-            
-
-            
+                ?>
 
             </div>
 

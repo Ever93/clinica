@@ -29,10 +29,6 @@ if($_SESSION["rol"] != "Administrador"){
 
             ?>
 
-            
-
-            
-
             </div>
 
         </div>

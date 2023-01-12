@@ -11,9 +11,7 @@ if($_SESSION["id"] != substr($_GET["url"], 6)){
 
 }
 
-
 ?>
-
 
 <div class="content-wrapper">
 
@@ -28,11 +26,11 @@ if($_SESSION["id"] != substr($_GET["url"], 6)){
 
         if($resultado["sexo"] == "Femenino"){
 
-            echo '<h1>Doctora: '.$resultado["nombre"].' '.$resultado["apellido"].'</h1>';
+            echo '<h1><b>Doctora:</b> '.$resultado["nombre"].' '.$resultado["apellido"].'</h1>';
 
         }else{
 
-            echo '<h1>Doctor: '.$resultado["nombre"].' '.$resultado["apellido"].'</h1>';
+            echo '<h1><b>Doctor:</b> '.$resultado["nombre"].' '.$resultado["apellido"].'</h1>';
 
         }
 
@@ -44,15 +42,12 @@ if($_SESSION["id"] != substr($_GET["url"], 6)){
         
 
             echo '<br>
-            <h1>Consultorio de: '.$consultorio[0]['nombre'].'</h1>';
+            <h1><b>Consultorio:</b> '.$consultorio[0]['nombre'].'</h1>';
             //Solucion con indice 0 a Warning: Undefined array key "nombre"
         
         
 
         ?>
-
-        
-        
 
     </section>
 
@@ -73,10 +68,15 @@ if($_SESSION["id"] != substr($_GET["url"], 6)){
 </div>
 
 <div class="modal fade" rol="dialog" id="CitaModal">
+
     <div class="modal-dialog">
+
         <div class="modal-content">
+
             <form method="post">
+
                 <div class="modal-body">
+
                     <div class="box-body">
 
                         <?php
@@ -104,6 +104,7 @@ if($_SESSION["id"] != substr($_GET["url"], 6)){
                         ?>
 
                         <div class="form-group">
+
                             <h2>Seleccionar Paciente:</h2>
 
                             <?php
@@ -116,7 +117,9 @@ if($_SESSION["id"] != substr($_GET["url"], 6)){
                                 $resultado = PacientesC::VerPacientesC($columna, $valor);
 
                                 foreach ($resultado as $key => $value) {
+
                                     echo '<option value="'.$value["apellido"].' '.$value["nombre"].'">'.$value["apellido"].' '.$value["nombre"].'</option>';
+
                                 }
                             ?>
                          
@@ -171,8 +174,13 @@ if($_SESSION["id"] != substr($_GET["url"], 6)){
 
                 $enviarC = new CitasC();
                 $enviarC -> PedirCitaDoctorC();
+
                 ?>
+
             </form>
+
         </div>
+
     </div>
+    
 </div>

@@ -21,7 +21,6 @@ if($_SESSION["rol"] != "Secretaria"){
 
 	</section>
 
-
 	<section class="content">
 		
 		<div class="box">
@@ -54,8 +53,6 @@ if($_SESSION["rol"] != "Secretaria"){
                             $perfil -> VerPerfilSecretariaC();
                             
                         ?>
-						
-						
 
 					</tbody>
 

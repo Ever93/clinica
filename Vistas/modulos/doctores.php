@@ -11,7 +11,6 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador"){
 
 }
 
-
 ?>
 
 <div class="content-wrapper">
@@ -31,7 +30,6 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador"){
 				<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#CrearDoctor">Crear Doctor</button>
 				
 			</div>
-
 
             <div class="box-body">
 
@@ -81,9 +79,7 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador"){
 
                                     echo '<td><img src="'.$value["foto"].'" width="40px"></td>';
 
-
                                 }
-
 
                                 $columna = "id";
                                 $valor = $value["id_consultorio"];
@@ -100,13 +96,10 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador"){
                                 <td>
 
                                     <div class="btn-group">
-
-                                        
+                                       
                                         <button class="btn btn-success EditarDoctor" Did="'.$value["id"].'" data-toggle="modal" data-target="#EditarDoctor"><i class="fa fa-pencil"></i>Editar</button>
                                         
                                         <button class="btn btn-danger EliminarDoctor" Did="'.$value["id"].'" imgD="'.$value["foto"].'"><i class="fa fa-times"></i> Borrar</button>
-
-                                        
 
                                     </div>
 
@@ -117,7 +110,6 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador"){
                         }
 
                         ?>
-
 
                     </tbody>
 
@@ -131,6 +123,7 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador"){
 
 </div>
 
+<!--Seccion de modal para crear Doctores-->
 
 <div class="modal fade" rol="dialog" id="CrearDoctor">
 	
@@ -170,7 +163,6 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador"){
 
 						</div>
 
-
 						<div class="form-group">
 							
 							<h2>Sexo:</h2>
@@ -178,7 +170,6 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador"){
 							<select class="form-control input-lg" name="sexo">
 								
 								<option>Seleccionar...</option>
-
 								<option value="Masculino">Masculino</option>
 								<option value="Femenino">Femenino</option>
 
@@ -213,7 +204,6 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador"){
 
                         </div>
 
-
                         <div class="form-group">
 
                             <h2>Usuario:</h2>
@@ -234,7 +224,6 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador"){
 
                 </div>
 
-
                 <div class="modal-footer">
 
                     <button type="submit" class="btn btn-primary">Crear</button>
@@ -243,12 +232,10 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador"){
 
                 </div>
 
-
                 <?php
 
                 $crear = new DoctoresC();
                 $crear -> CrearDoctorC();
-
 
                 ?>
 
@@ -259,6 +246,8 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador"){
     </div>
 
 </div>
+
+<!--Modal para Editar los datos del Doctor-->
 
 <div class="modal fade" rol="dialog" id="EditarDoctor">
 	
@@ -298,7 +287,6 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador"){
 
 						</div>
 
-
 						<div class="form-group">
 							
 							<h2>Sexo:</h2>
@@ -306,7 +294,6 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador"){
 							<select class="form-control input-lg" name="sexoE" required="">
 								
 								<option id="sexoE"></option>
-
 								<option value="Masculino">Masculino</option>
 								<option value="Femenino">Femenino</option>
 
@@ -333,7 +320,6 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador"){
 					</div>
 
 				</div>
-
 
 				<div class="modal-footer">
 					

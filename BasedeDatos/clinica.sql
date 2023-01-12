@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-01-2023 a las 00:46:10
+-- Tiempo de generación: 12-01-2023 a las 03:16:38
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 5.6.40
 
@@ -119,10 +119,6 @@ CREATE TABLE `doctores` (
 --
 
 INSERT INTO `doctores` (`id`, `id_consultorio`, `apellido`, `nombre`, `telefono`, `foto`, `usuario`, `clave`, `sexo`, `horarioE`, `horarioS`, `rol`) VALUES
-(6, 1, 'Fretes', 'Alan', '', 'Vistas/img/Doctores/Doc-441.png', 'alan', '12345', 'Masculino', '05:00:00', '08:00:00', 'Doctor'),
-(8, 1, 'Julio', 'Halo', '', '', 'jiu', '124', 'Masculino', '00:00:00', '00:00:00', 'Doctor'),
-(9, 3, 'Zaracho', 'Hilda', '', '', 'doc', '123', 'Femenino', '08:00:00', '16:00:00', 'Doctor'),
-(11, 2, 'Sosa', 'Matias', '', '', 'mati', '123', 'Masculino', '00:00:00', '00:00:00', 'Doctor'),
 (12, 1, 'Benitez', 'Jose', '0991104575', '', 'jose', '123', 'Masculino', '10:00:00', '17:00:00', 'Doctor');
 
 -- --------------------------------------------------------
@@ -148,7 +144,7 @@ CREATE TABLE `inicio` (
 --
 
 INSERT INTO `inicio` (`id`, `intro`, `horaE`, `horaS`, `telefono`, `correo`, `direccion`, `logo`, `favicon`) VALUES
-(1, 'Introooo', '07:00:00', '18:00:00', '0991104575', 'everbenitez7m@gmail.com', 'Tte Santiago Brizuela San Francisco', 'Vistas/img/logo.png', 'Vistas/img/favicon.png');
+(1, 'Su salud es nuestra prioridad', '07:00:00', '18:00:00', '0991104575', 'everbenitez7m@gmail.com', 'calle ultima', 'Vistas/img/logo.png', 'Vistas/img/favicon.png');
 
 -- --------------------------------------------------------
 
@@ -161,6 +157,7 @@ CREATE TABLE `pacientes` (
   `apellido` text COLLATE utf8_spanish_ci NOT NULL,
   `nombre` text COLLATE utf8_spanish_ci NOT NULL,
   `documento` text COLLATE utf8_spanish_ci NOT NULL,
+  `telefono` text COLLATE utf8_spanish_ci NOT NULL,
   `foto` text COLLATE utf8_spanish_ci NOT NULL,
   `usuario` text COLLATE utf8_spanish_ci NOT NULL,
   `clave` text COLLATE utf8_spanish_ci NOT NULL,
@@ -171,10 +168,9 @@ CREATE TABLE `pacientes` (
 -- Volcado de datos para la tabla `pacientes`
 --
 
-INSERT INTO `pacientes` (`id`, `apellido`, `nombre`, `documento`, `foto`, `usuario`, `clave`, `rol`) VALUES
-(2, 'Vera', 'Ara', '5381896', '', 'ara', '321', 'Paciente'),
-(3, 'Acosta', 'Raul', '5388907', '', 'acosta', '1234', 'Paciente'),
-(4, 'Leiser', 'Alan', '23446', '', 'Ale11', '64645', 'Paciente');
+INSERT INTO `pacientes` (`id`, `apellido`, `nombre`, `documento`, `telefono`, `foto`, `usuario`, `clave`, `rol`) VALUES
+(2, 'Vera', 'Ara', '5381896', '0987764580', '', 'ara', '321', 'Paciente'),
+(3, 'Acosta', 'Raul', '5388907', '0987234321', '', 'acosta', '1234', 'Paciente');
 
 -- --------------------------------------------------------
 
@@ -188,6 +184,7 @@ CREATE TABLE `secretarias` (
   `clave` text COLLATE utf8_spanish_ci NOT NULL,
   `nombre` text COLLATE utf8_spanish_ci NOT NULL,
   `apellido` text COLLATE utf8_spanish_ci NOT NULL,
+  `telefono` text COLLATE utf8_spanish_ci NOT NULL,
   `foto` text COLLATE utf8_spanish_ci NOT NULL,
   `rol` text COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
@@ -196,8 +193,8 @@ CREATE TABLE `secretarias` (
 -- Volcado de datos para la tabla `secretarias`
 --
 
-INSERT INTO `secretarias` (`id`, `usuario`, `clave`, `nombre`, `apellido`, `foto`, `rol`) VALUES
-(1, 'mary', '123', 'Martina', 'Gaspar', 'Vistas/img/Secretarias/S-29.png', 'Secretaria');
+INSERT INTO `secretarias` (`id`, `usuario`, `clave`, `nombre`, `apellido`, `telefono`, `foto`, `rol`) VALUES
+(1, 'mary', '123', 'Martina', 'Gaspar', '0994104575', 'Vistas/img/Secretarias/S-29.png', 'Secretaria');
 
 --
 -- Índices para tablas volcadas
@@ -283,13 +280,13 @@ ALTER TABLE `inicio`
 -- AUTO_INCREMENT de la tabla `pacientes`
 --
 ALTER TABLE `pacientes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `secretarias`
 --
 ALTER TABLE `secretarias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

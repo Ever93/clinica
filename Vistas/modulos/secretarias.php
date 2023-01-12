@@ -32,7 +32,6 @@ if($_SESSION["rol"] != "Administrador"){
 				
 			</div>
 
-
             <div class="box-body">
 
                 <table class="table table-bordered table-hover table-striped DT">
@@ -77,9 +76,7 @@ if($_SESSION["rol"] != "Administrador"){
 
                                     echo '<td><img src="'.$value["foto"].'" width="40px"></td>;';
                                 }
-
-                                
-                                
+                             
                                 echo '<td>'.$value["usuario"].'</td>
 
                                 <td>'.$value["clave"].'</td>
@@ -99,8 +96,7 @@ if($_SESSION["rol"] != "Administrador"){
                     }
 
                     ?>
-
-                       
+                     
                     </tbody>
 
                 </table>
@@ -112,7 +108,6 @@ if($_SESSION["rol"] != "Administrador"){
     </section>
 
 </div>
-
 
 <div class="modal fade" rol="dialog" id="CrearSecretaria">
 	
@@ -172,7 +167,6 @@ if($_SESSION["rol"] != "Administrador"){
 
                 </div>
 
-
                 <div class="modal-footer">
 
                     <button type="submit" class="btn btn-primary">Crear</button>
@@ -181,12 +175,10 @@ if($_SESSION["rol"] != "Administrador"){
 
                 </div>
 
-
                 <?php
 
                 $crear = new SecretariasC();
                 $crear -> CrearSecretariaC();
-
 
                 ?>
 
@@ -197,7 +189,6 @@ if($_SESSION["rol"] != "Administrador"){
     </div>
 
 </div>
-
 
 <?php
 

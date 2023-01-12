@@ -13,10 +13,12 @@ if($_SESSION["rol"] != "Secretaria"){
 
 ?>
 
-
 <div class="content-wrapper">
+
     <section class="content-header">
+
         <h1>Editar Consultorios</h1>
+
     </section>
 
     <section class="content">
@@ -35,10 +37,12 @@ if($_SESSION["rol"] != "Secretaria"){
 
                     ?>
 
-                    
-
                 </form>
+
             </div>
+
         </div>
+
     </section>
+    
 </div>

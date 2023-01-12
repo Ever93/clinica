@@ -11,9 +11,7 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador"){
 
 }
 
-
 ?>
-
 
 <div class="content-wrapper">
 
@@ -114,9 +112,6 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador"){
     </section>
 
 </div>
-
-
-
 
 <?php
 

@@ -53,21 +53,16 @@ if($_SESSION["rol"] != "Paciente"){
 
                                     echo '<a href="Doctor/'.$value["id"].'" style="color: black;"><p>'.$value["apellido"].' '.$value["nombre"].'</p></a>';
                                 }
-                            
-
-                               
-
+                         
                             echo '</div>
-                            
-                            
+                               
                         </div>
 
                     </div>';
                     
                 }
-                ?>
 
-                
+                ?>
 
             </div>
 

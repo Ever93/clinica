@@ -21,15 +21,13 @@ if($_SESSION["rol"] != "Secretaria"){
 
             <div class="box-body">
 
-            <?php 
-            
-            $editarPerfil = new SecretariasC();
-            $editarPerfil -> EditarPerfilSecretariaC();
-            $editarPerfil -> ActualizarPerfilSecretariaC();
-
-            ?>
-
+                <?php 
                 
+                $editarPerfil = new SecretariasC();
+                $editarPerfil -> EditarPerfilSecretariaC();
+                $editarPerfil -> ActualizarPerfilSecretariaC();
+
+                ?>
 
             </div>
 

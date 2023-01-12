@@ -21,7 +21,6 @@ if($_SESSION["rol"] != "Doctor"){
 
 	</section>
 
-
 	<section class="content">
 		
 		<div class="box">
@@ -56,9 +55,6 @@ if($_SESSION["rol"] != "Doctor"){
                             $perfil -> VerPerfilDoctorC();
                             
                         ?>
-						
-						
-						
 
 					</tbody>
 

@@ -21,7 +21,6 @@ if($_SESSION["rol"] != "Administrador"){
 
 	</section>
 
-
 	<section class="content">
 		
 		<div class="box">
@@ -53,9 +52,6 @@ if($_SESSION["rol"] != "Administrador"){
                             $perfil -> VerPerfilAdminC();
                             
                         ?>
-						
-						
-						
 
 					</tbody>
 

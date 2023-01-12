@@ -11,7 +11,6 @@ if($_SESSION["id"] != substr($_GET["url"], 10)){
 
 }
 
-
 ?>
 
 <div class="content-wrapper">
@@ -33,8 +32,7 @@ if($_SESSION["id"] != substr($_GET["url"], 10)){
                     <thead>
 
                         <tr>
-
-                            
+                         
                             <th>Fecha y Hora</th>
                             <th>Doctor</th>
                             <th>Consultorio</th>
@@ -64,8 +62,6 @@ if($_SESSION["id"] != substr($_GET["url"], 10)){
 
                                     echo '<td>'.$doctor["apellido"].' '.$doctor["nombre"].'</td>';
 
-
-
                                     $columna = "id";
                                     $valor = $value["id_consultorio"];
 
@@ -80,8 +76,7 @@ if($_SESSION["id"] != substr($_GET["url"], 10)){
                         }
 
                         ?>
-
-                        
+                       
                     </tbody>
 
                 </table>

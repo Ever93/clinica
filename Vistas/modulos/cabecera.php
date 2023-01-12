@@ -1,14 +1,14 @@
 <header class="main-header">
-    <!-- Logo -->
+  
     <a href="http://localhost/clinica/inicio" class="logo">
-      <!-- mini logo for sidebar mini 50x50 pixels -->
+      
       <span class="logo-mini"><b>C M</b></span>
-      <!-- logo for regular state and mobile devices -->
+      
       <span class="logo-lg"><b>Centro Medico</b></span>
     </a>
-    <!-- Header Navbar: style can be found in header.less -->
+    
     <nav class="navbar navbar-static-top">
-      <!-- Sidebar toggle button-->
+      
       <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
@@ -22,23 +22,21 @@
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
 
-            <?php
-            
-            if($_SESSION["foto"] == ""){
-
-              echo '<img src="http://localhost/clinica/Vistas/img/defecto.png" class="user-image" alt="User Image">';
-
-            }else{
-
-              echo '<img src="http://localhost/clinica/'.$_SESSION["foto"].'" class="user-image" alt="User Image">';
-
-            }
-
-            ?>
-
+              <?php
               
+              if($_SESSION["foto"] == ""){
 
-              <span class="hidden-xs"><?php echo $_SESSION["nombre"]; echo " "; echo $_SESSION["apellido"]; ?></span>
+                echo '<img src="http://localhost/clinica/Vistas/img/defecto.png" class="user-image" alt="User Image">';
+
+              }else{
+
+                echo '<img src="http://localhost/clinica/'.$_SESSION["foto"].'" class="user-image" alt="User Image">';
+
+              }
+
+              ?>
+
+                <span class="hidden-xs"><?php echo $_SESSION["nombre"]; echo " "; echo $_SESSION["apellido"]; ?></span>
 
             </a>
             <ul class="dropdown-menu">
@@ -55,12 +53,19 @@
                 </div>
 
                 <div class="pull-right">
+
                   <a href="http://localhost/clinica/salir" class="btn btn-danger btn-flat">Salir</a>
+
                 </div>
+
               </li>
+
             </ul>
-         
+
         </ul>
+
       </div>
+
     </nav>
+    
   </header>

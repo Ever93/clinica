@@ -29,10 +29,6 @@ if($_SESSION["rol"] != "Doctor"){
 
             ?>
 
-            
-
-            
-
             </div>
 
         </div>

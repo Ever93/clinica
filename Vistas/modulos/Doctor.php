@@ -11,9 +11,7 @@ if($_SESSION["rol"] != "Paciente"){
 
 }
 
-
 ?>
-
 
 <div class="content-wrapper">
 
@@ -28,11 +26,11 @@ if($_SESSION["rol"] != "Paciente"){
 
         if($resultado["sexo"] == "Femenino"){
 
-            echo '<h1>Doctora: '.$resultado["apellido"].' '.$resultado["nombre"].'</h1>';
+            echo '<h1><b>Doctora:</b> '.$resultado["apellido"].' '.$resultado["nombre"].'</h1>';
 
         }else{
 
-            echo '<h1>Doctor: '.$resultado["apellido"].' '.$resultado["nombre"].'</h1>';
+            echo '<h1><b>Doctor:</b> '.$resultado["apellido"].' '.$resultado["nombre"].'</h1>';
 
         }
 
@@ -44,16 +42,13 @@ if($_SESSION["rol"] != "Paciente"){
         
 
             echo '<br>
-            <h1>Consultorio de: '.$consultorio[0]['nombre'].'</h1>';
+            <h1><b>Consultorio:</b> '.$consultorio[0]['nombre'].'</h1>';
             //Solucion con indice 0 a Warning: Undefined array key "nombre"
         
         
 
         ?>
-
-        
-        
-
+  
     </section>
 
     <section class="cotent">

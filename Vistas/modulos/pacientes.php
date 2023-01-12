@@ -11,7 +11,6 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Doctor" && $_SESSION
 
 }
 
-
 ?>
 
 <div class="content-wrapper">
@@ -31,7 +30,6 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Doctor" && $_SESSION
 				<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#CrearPaciente">Crear Paciente</button>
 				
 			</div>
-
 
             <div class="box-body">
 
@@ -83,32 +81,26 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Doctor" && $_SESSION
                                         echo '<td><img src="'.$value["foto"].'" width="40px"></td>';
                                     }
                                     
-
                                     echo '<td>'.$value["usuario"].'</td>
                                     <td>'.$value["clave"].'</td>
                                         
                                     <td>
 
                                         <div class="btn-group">
-
-                                                
+                                               
                                             <button class="btn btn-success EditarPaciente" Pid="'.$value["id"].'" data-toggle="modal" data-target="#EditarPaciente"><i class="fa fa-pencil"></i>Editar</button>
                                                 
                                             <button class="btn btn-danger EliminarPaciente" Pid="'.$value["id"].'" imgP="'.$value["foto"].'"><i class="fa fa-times"></i> Borrar</button>
-
-                                                
 
                                         </div>
 
                                     </td>
 
                                 </tr>';
+
                         }
 
                         ?>
-
-                        
-
 
                     </tbody>
 
@@ -121,7 +113,6 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Doctor" && $_SESSION
     </section>
 
 </div>
-
 
 <div class="modal fade" rol="dialog" id="CrearPaciente">
 	
@@ -189,7 +180,6 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Doctor" && $_SESSION
 
                 </div>
 
-
                 <div class="modal-footer">
 
                     <button type="submit" class="btn btn-primary">Crear</button>
@@ -198,12 +188,10 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Doctor" && $_SESSION
 
                 </div>
 
-
                 <?php
 
                 $crear = new PacientesC();
                 $crear -> CrearPacienteC();
-
 
                 ?>
 
@@ -281,7 +269,6 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Doctor" && $_SESSION
 
 				</div>
 
-
 				<div class="modal-footer">
 					
 					<button type="submit" class="btn btn-success">Guardar Cambios</button>
@@ -304,7 +291,6 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Doctor" && $_SESSION
 	</div>
 
 </div>
-
 
 <?php
 

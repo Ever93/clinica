@@ -21,17 +21,13 @@ if($_SESSION["rol"] != "Paciente"){
 
             <div class="box-body">
 
-            <?php 
-            
-            $editarPerfil = new PacientesC();
-            $editarPerfil -> EditarPerfilPacienteC();
-            $editarPerfil -> ActualizarPerfilPacienteC();
-
-            ?>
-
-            
-
+                <?php 
                 
+                $editarPerfil = new PacientesC();
+                $editarPerfil -> EditarPerfilPacienteC();
+                $editarPerfil -> ActualizarPerfilPacienteC();
+
+                ?>
 
             </div>
 
