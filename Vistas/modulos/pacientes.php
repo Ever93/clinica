@@ -277,7 +277,7 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Doctor" && $_SESSION
 
 				</div>
 
-				<?php
+				<?php 
 
 				$actualizar = new PacientesC();
 				$actualizar -> ActualizarPacienteC();

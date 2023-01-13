@@ -26,11 +26,11 @@ if($_SESSION["rol"] != "Paciente"){
 
         if($resultado["sexo"] == "Femenino"){
 
-            echo '<h1><b>Doctora:</b> '.$resultado["apellido"].' '.$resultado["nombre"].'</h1>';
+            echo '<h1><b>Doctora:</b> '.$resultado["nombre"].' '.$resultado["apellido"].'</h1>';
 
         }else{
 
-            echo '<h1><b>Doctor:</b> '.$resultado["apellido"].' '.$resultado["nombre"].'</h1>';
+            echo '<h1><b>Doctor:</b> '.$resultado["nombre"].' '.$resultado["apellido"].'</h1>';
 
         }
 
@@ -48,8 +48,17 @@ if($_SESSION["rol"] != "Paciente"){
         
 
         ?>
-  
+
+        
+        <div style="background-color: #66B2FF; color: white; height:20px;">
+            <center><h4><b>Calendario de Citas y Turnos disponibles</b></h4></center>
+        </div>
+        
     </section>
+   
+        
+  
+
 
     <section class="cotent">
 
@@ -68,13 +77,19 @@ if($_SESSION["rol"] != "Paciente"){
 </div>
 
 <div class="modal fade" rol="dialog" id="CitaModal">
+
     <div class="modal-dialog">
+
         <div class="modal-content">
+
             <form method="post">
+
                 <div class="modal-body">
+
                     <div class="box-body">
 
                         <?php
+
                         $columna = "id";
                         $valor = substr($_GET["url"], 7);
 
@@ -144,7 +159,7 @@ if($_SESSION["rol"] != "Paciente"){
 
                     <button type="submit" class="btn btn-primary">Pedir Cita</button>
 
-                    <button type="button" class="btn btn-danger">Cancelar</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
 
                 </div>
 
@@ -154,6 +169,9 @@ if($_SESSION["rol"] != "Paciente"){
                 $enviarC -> EnviarCitaC();
                 ?>
             </form>
+
         </div>
+
     </div>
+    
 </div>
