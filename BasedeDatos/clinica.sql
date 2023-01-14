@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-01-2023 a las 03:23:47
+-- Tiempo de generación: 14-01-2023 a las 19:25:15
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 5.6.40
 
@@ -58,6 +58,7 @@ CREATE TABLE `citas` (
   `id_paciente` int(11) NOT NULL,
   `nyaP` text COLLATE utf8_spanish_ci NOT NULL,
   `documento` text COLLATE utf8_spanish_ci NOT NULL,
+  `telefono` text COLLATE utf8_spanish_ci NOT NULL,
   `inicio` datetime NOT NULL,
   `fin` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
@@ -66,8 +67,9 @@ CREATE TABLE `citas` (
 -- Volcado de datos para la tabla `citas`
 --
 
-INSERT INTO `citas` (`id`, `id_doctor`, `id_consultorio`, `id_paciente`, `nyaP`, `documento`, `inicio`, `fin`) VALUES
-(47, 14, 9, 5, 'Lili Aquino', '345345', '2023-01-09 11:00:00', '2023-01-09 12:00:00');
+INSERT INTO `citas` (`id`, `id_doctor`, `id_consultorio`, `id_paciente`, `nyaP`, `documento`, `telefono`, `inicio`, `fin`) VALUES
+(50, 16, 3, 4, 'Andres Aguilera', '54367', '0975616453', '2023-01-10 11:00:00', '2023-01-10 12:00:00'),
+(51, 13, 1, 4, 'Andres Aguilera', '54367', '0975616453', '2023-01-09 08:00:00', '2023-01-09 09:00:00');
 
 -- --------------------------------------------------------
 
@@ -169,7 +171,7 @@ CREATE TABLE `pacientes` (
 --
 
 INSERT INTO `pacientes` (`id`, `apellido`, `nombre`, `documento`, `telefono`, `foto`, `usuario`, `clave`, `rol`) VALUES
-(4, 'Aguilera', 'Andres', '54367', '3234234', '', 'andres', '123', 'Paciente'),
+(4, 'Aguilera', 'Andres', '54367', '0975616453', '', 'andres', '123', 'Paciente'),
 (5, 'Aquino', 'Lili', '345345', '342343', '', 'lili', '123', 'Paciente');
 
 -- --------------------------------------------------------
@@ -256,7 +258,7 @@ ALTER TABLE `administradores`
 -- AUTO_INCREMENT de la tabla `citas`
 --
 ALTER TABLE `citas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT de la tabla `consultorios`
