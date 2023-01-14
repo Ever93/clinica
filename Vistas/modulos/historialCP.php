@@ -38,6 +38,7 @@ if($_SESSION["rol"] != "Secretaria"){
                             <th>Consultorio</th>
                             <th>Paciente</th>
                             <th>Documento</th>
+                            <th>Telefono</th>
                             <th>Borrar</th>
 
                         </tr>
@@ -74,6 +75,7 @@ if($_SESSION["rol"] != "Secretaria"){
 
                                 echo '<td>'.$value["nyaP"].'</td>
                                 <td>'.$value["documento"].'</td>
+                                <td>'.$value["telefono"].'</td>
                                 <td><div class="btn-group">
 
                                     

@@ -113,7 +113,13 @@ if($_SESSION["rol"] != "Paciente"){
 
                                 <input type="text" class="form-control input-lg" name="documentoC" value="'.$_SESSION["documento"].'" readonly>
 
-                            </div>';
+                            </div>
+
+                            <div class="form-group">
+
+                                <input type="hidden" class="form-control input-lg" name="telefonoC" value="'.$_SESSION["telefono"].'" readonly>
+
+                             </div>';
 
                             $columna = "id";
                             $valor = $resultado["id_consultorio"];
