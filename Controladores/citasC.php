@@ -62,5 +62,26 @@ class CitasC{
 		}
 
 	}
-    
+
+     //Borrar Citas
+     public function BorrarCitasC(){
+
+        if (substr($_GET["url"], 14)){
+
+            $tablaBD = "citas";
+
+            $id = substr($_GET["url"], 14);
+
+            $resultado = CitasM::BorrarCitasM($tablaBD, $id);
+
+            if($resultado == true){
+
+                echo '<script>
+                window.location = "http://localhost/clinica/cancelar-Cita";
+                </script>';
+            }
+
+        }
+
+    }
 }

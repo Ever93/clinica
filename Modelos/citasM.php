@@ -63,5 +63,28 @@ class CitasM extends ConexionBD{
 		$pdo = null;
 
 	}
+
+	//Borrar Citas
+    static public function BorrarCitasM($tablaBD, $id){
+
+        $pdo = ConexionBD::cBD()->prepare("DELETE FROM $tablaBD WHERE id = :id");
+
+        $pdo -> bindParam(":id", $id, PDO::PARAM_INT);
+
+        if($pdo->execute()){
+
+            return true;
+
+        }else{
+
+            return false;
+
+        }
+
+        $pdo -> close();
+        $pdo = null;
+
+    
+    }
     
 }

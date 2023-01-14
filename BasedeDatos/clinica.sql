@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-01-2023 a las 03:16:38
+-- Tiempo de generación: 14-01-2023 a las 03:23:47
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 5.6.40
 
@@ -67,10 +67,7 @@ CREATE TABLE `citas` (
 --
 
 INSERT INTO `citas` (`id`, `id_doctor`, `id_consultorio`, `id_paciente`, `nyaP`, `documento`, `inicio`, `fin`) VALUES
-(38, 10, 3, 3, 'Raul Acosta', '5388907', '2023-01-02 08:00:00', '2023-01-02 09:00:00'),
-(39, 9, 3, 3, 'Raul Acosta', '5388907', '2023-01-09 09:00:00', '2023-01-09 10:00:00'),
-(40, 9, 3, 3, 'Raul Acosta', '5388907', '2023-01-10 10:00:00', '2023-01-10 11:00:00'),
-(41, 9, 3, 0, 'Vera Ara', '5381896', '2023-01-12 10:00:00', '2023-01-12 11:00:00');
+(47, 14, 9, 5, 'Lili Aquino', '345345', '2023-01-09 11:00:00', '2023-01-09 12:00:00');
 
 -- --------------------------------------------------------
 
@@ -119,7 +116,10 @@ CREATE TABLE `doctores` (
 --
 
 INSERT INTO `doctores` (`id`, `id_consultorio`, `apellido`, `nombre`, `telefono`, `foto`, `usuario`, `clave`, `sexo`, `horarioE`, `horarioS`, `rol`) VALUES
-(12, 1, 'Benitez', 'Jose', '0991104575', '', 'jose', '123', 'Masculino', '10:00:00', '17:00:00', 'Doctor');
+(13, 1, 'Arguello', 'Matias', '0971104575', '', 'mati', '123', 'Masculino', '06:00:00', '15:00:00', 'Doctor'),
+(14, 9, 'Lujan', 'Oscar', '2313223', '', 'oscar', '123', 'Masculino', '08:00:00', '16:00:00', 'Doctor'),
+(15, 2, 'Zayas', 'Marisa', '2323234', '', 'marisa', '123', 'Femenino', '08:00:00', '17:00:00', 'Doctor'),
+(16, 3, 'Benitez', 'Lucia', '0989878687', '', 'lucia', '123', 'Femenino', '10:00:00', '14:00:00', 'Doctor');
 
 -- --------------------------------------------------------
 
@@ -169,8 +169,8 @@ CREATE TABLE `pacientes` (
 --
 
 INSERT INTO `pacientes` (`id`, `apellido`, `nombre`, `documento`, `telefono`, `foto`, `usuario`, `clave`, `rol`) VALUES
-(2, 'Vera', 'Ara', '5381896', '0987764580', '', 'ara', '321', 'Paciente'),
-(3, 'Acosta', 'Raul', '5388907', '0987234321', '', 'acosta', '1234', 'Paciente');
+(4, 'Aguilera', 'Andres', '54367', '3234234', '', 'andres', '123', 'Paciente'),
+(5, 'Aquino', 'Lili', '345345', '342343', '', 'lili', '123', 'Paciente');
 
 -- --------------------------------------------------------
 
@@ -256,7 +256,7 @@ ALTER TABLE `administradores`
 -- AUTO_INCREMENT de la tabla `citas`
 --
 ALTER TABLE `citas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT de la tabla `consultorios`
@@ -268,7 +268,7 @@ ALTER TABLE `consultorios`
 -- AUTO_INCREMENT de la tabla `doctores`
 --
 ALTER TABLE `doctores`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `inicio`
@@ -286,7 +286,7 @@ ALTER TABLE `pacientes`
 -- AUTO_INCREMENT de la tabla `secretarias`
 --
 ALTER TABLE `secretarias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
