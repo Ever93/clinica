@@ -63,7 +63,7 @@ class CitasC{
 
 	}
 
-     //Borrar Citas
+     //Borrar Citas desde menu Pacientes
      public function BorrarCitasC(){
 
         if (substr($_GET["url"], 14)){
@@ -78,6 +78,28 @@ class CitasC{
 
                 echo '<script>
                 window.location = "http://localhost/clinica/cancelar-Cita";
+                </script>';
+            }
+
+        }
+
+    }
+
+    //Borrar citas de Pacientes desde Menu Secretaria
+    public function BorrarCitasPacientesC(){
+
+        if (substr($_GET["url"], 12)){
+
+            $tablaBD = "citas";
+
+            $id = substr($_GET["url"], 12);
+
+            $resultado = CitasM::BorrarCitasPacientesM($tablaBD, $id);
+
+            if($resultado == true){
+
+                echo '<script>
+                window.location = "http://localhost/clinica/historialCP";
                 </script>';
             }
 

@@ -1,6 +1,6 @@
 <?php
 
-if($_SESSION["rol"] != "Paciente"){
+if($_SESSION["rol"] != "Secretaria"){
 
     echo '<script>
     
@@ -36,6 +36,8 @@ if($_SESSION["rol"] != "Paciente"){
                             <th>Fecha y Hora</th>
                             <th>Doctor</th>
                             <th>Consultorio</th>
+                            <th>Paciente</th>
+                            <th>Documento</th>
                             <th>Borrar</th>
 
                         </tr>
@@ -50,7 +52,7 @@ if($_SESSION["rol"] != "Paciente"){
 
                         foreach ($resultado as $key => $value) {
 
-                            if($_SESSION["documento"] == $value["documento"]) {
+                           
                             
                             echo '<tr>
                                     <td>'.($key+1).'</td>
@@ -70,25 +72,22 @@ if($_SESSION["rol"] != "Paciente"){
 
                                     echo '<td>'.$consultorio[0]["nombre"].'</td>';
 
-                                echo '  <td>
-
-                                <div class="btn-group">
+                                echo '<td>'.$value["nyaP"].'</td>
+                                <td>'.$value["documento"].'</td>
+                                <td><div class="btn-group">
 
                                     
 
-                                    <a href="http://localhost/clinica/cancelar-Cita/'.$value["id"].'">
-                                        <button class="btn btn-primary"><i class="fa fa-trash-o"></i> Cancelar</button>
-                                    </a>
+                                <a href="http://localhost/clinica/historialCP/'.$value["id"].'">
+                                    <button class="btn btn-primary"><i class="fa fa-trash-o"></i> Eliminar</button>
+                                </a>
 
-                                </div>
-
-                            </td>
+                            </div></td>
                                 </tr>';
 
                             }
-                               
 
-                        }
+                        
 
                         ?>
                        
@@ -105,5 +104,5 @@ if($_SESSION["rol"] != "Paciente"){
 </div>
 
 <?php
-$borrarCi = new CitasC();
-$borrarCi -> BorrarCitasC();
+$borrarCP = new CitasC();
+$borrarCP -> BorrarCitasPacientesC();

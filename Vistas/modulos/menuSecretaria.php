@@ -32,6 +32,14 @@
           </a>
         </li>
 
+        <li>
+          <a href="http://localhost/clinica/historialCP">
+          
+            <i class="fa fa-medkit"></i>
+            <span>Ver Citas</span>
+          </a>
+        </li>
+
       </ul>
 
     </section>

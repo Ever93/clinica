@@ -64,7 +64,7 @@ class CitasM extends ConexionBD{
 
 	}
 
-	//Borrar Citas
+	//Borrar Citas desde Menu Pacientes
     static public function BorrarCitasM($tablaBD, $id){
 
         $pdo = ConexionBD::cBD()->prepare("DELETE FROM $tablaBD WHERE id = :id");
@@ -87,4 +87,28 @@ class CitasM extends ConexionBD{
     
     }
     
+
+	//Borrar Citas desde menu Secretaria
+    static public function BorrarCitasPacientesM($tablaBD, $id){
+
+        $pdo = ConexionBD::cBD()->prepare("DELETE FROM $tablaBD WHERE id = :id");
+
+        $pdo -> bindParam(":id", $id, PDO::PARAM_INT);
+
+        if($pdo->execute()){
+
+            return true;
+
+        }else{
+
+            return false;
+
+        }
+
+        $pdo -> close();
+        $pdo = null;
+
+    
+    }
+	
 }
