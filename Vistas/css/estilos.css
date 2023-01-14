@@ -29,9 +29,23 @@
   }
 
   #adminstyle{
-    background-color: #55AA5D;
+    background-color: #00CC66;
     color: white;
   }
 
- 
+  #whatsapp {
+    position: fixed;
+    bottom: 40px;
+    right:20px;
+ }
+ svg {
+    width: 50px;
+    filter: drop-shadow(0 1px 4px rgba(0,0,0,.4));
+ }
+ circle {
+    fill: #fff;
+ }
+ path {
+    fill: #25d366;
+ }
  

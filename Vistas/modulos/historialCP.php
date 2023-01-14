@@ -64,7 +64,7 @@ if($_SESSION["rol"] != "Secretaria"){
 
                                     $doctor = DoctoresC::DoctorC($columna, $valor);
 
-                                    echo '<td>'.$doctor["apellido"].' '.$doctor["nombre"].'</td>';
+                                    echo '<td>'.$doctor["nombre"].' '.$doctor["apellido"].'</td>';
 
                                     $columna = "id";
                                     $valor = $value["id_consultorio"];
