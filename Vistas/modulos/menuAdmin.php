@@ -19,16 +19,16 @@
         </li>
 
         <li>
-          <a href="http://localhost/clinica/doctores">
-            <i class="fa fa-user-md"></i>
-            <span>Doctores</span>
+          <a href="http://localhost/clinica/consultorios">
+            <i class="fa fa-medkit"></i>
+            <span>Consultorios</span>
           </a>
         </li>
 
         <li>
-          <a href="http://localhost/clinica/consultorios">
-            <i class="fa fa-medkit"></i>
-            <span>Consultorios</span>
+          <a href="http://localhost/clinica/doctores">
+            <i class="fa fa-user-md"></i>
+            <span>Doctores</span>
           </a>
         </li>
 
