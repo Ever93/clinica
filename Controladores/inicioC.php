@@ -229,4 +229,15 @@ class InicioC{
 
 	}
 
+	//Ver telefono para whatsapp
+	public function vertelwhatC($columna, $valor){
+
+		$tablaBD = "inicio";
+
+		$resultado = InicioM::MostrarTelfWhatM($tablaBD, $columna, $valor);
+
+		return $resultado;
+
+	}
+
 }

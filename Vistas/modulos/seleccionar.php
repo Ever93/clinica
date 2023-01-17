@@ -115,14 +115,39 @@
      
     </section>
 
-    <div style="position:absolute; right:20px; bottom:40px;">
-      <a href="https://api.whatsapp.com/send/?phone=595971104575" target="_blank"><FONT SIZE=4><b>Contactenos</b></font>
-        <img src="Vistas/img/whatsapp.png">
-      </a>
-    </div>
+
+    <?php
+
+      $columna = null;
+      $valor = null;
+
+      $resultado = InicioC::vertelwhatC($columna, $valor);
+
+      foreach($resultado as $key => $value){
+
+        $telf = $value['telefono'];
+        $telfwhat = substr($telf, 1);
+
+          echo '
+                
+                <div style="position:absolute; right:20px; bottom:40px;">
+
+                  <a href="https://api.whatsapp.com/send/?phone=595'.$telfwhat.'" target="_blank"><FONT SIZE=4><b>Contactenos</b></font>
+
+                  <img src="Vistas/img/whatsapp.png">
+
+                  </a>
+
+                </div>';
+        
+      }
+                    
+    ?>
 
     <br>
 
   <div id="inferior">
+
     <h6><center>Copyright &copy; 2023 <a href="https://api.whatsapp.com/send/?phone=595971104575">SmartCenter-Paraguay</a>. Todos los derechos reservados. <b>Version</b> 0.0.1</center></h6>
+    
   </div>

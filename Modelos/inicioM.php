@@ -44,4 +44,27 @@ class InicioM extends ConexionBD{
 		$pdo = null;
 
 	}
+
+	//Ver telefono para whatsapp
+	static public function MostrarTelfWhatM($tablaBD, $columna, $valor){
+
+        if($columna == null){
+
+            $pdo = ConexionBD::cBD()->prepare("SELECT * FROM $tablaBD");
+
+            $pdo -> execute();
+            return $pdo -> fetchAll();
+
+        }else{
+
+            $pdo = ConexionBD::cBD()->prepare("SELECT * FROM $tablaBD WHERE $columna = :$columna");
+
+            $pdo -> bindParam(":".$columna, $valor, PDO::PARAM_STR);
+
+            $pdo -> execute();
+
+            return $pdo->fetchAll();
+        }
+
+    }
 }
