@@ -9,7 +9,7 @@
     left:0px; /*A la derecha deje un espacio de 0px*/
     right:0px; /*A la izquierda deje un espacio de 0px*/
     bottom:0px; /*Abajo deje un espacio de 0px*/
-    height:30px; /*alto del div*/
+    height:35px; /*alto del div*/
     z-index:0;
   }
 
@@ -33,19 +33,8 @@
     color: white;
   }
 
-  #whatsapp {
-    position: fixed;
-    bottom: 40px;
+  #inferiorcontacto{
+    position:absolute;
     right:20px;
- }
- svg {
-    width: 50px;
-    filter: drop-shadow(0 1px 4px rgba(0,0,0,.4));
- }
- circle {
-    fill: #fff;
- }
- path {
-    fill: #25d366;
- }
- 
+    bottom:40px; 
+  }
