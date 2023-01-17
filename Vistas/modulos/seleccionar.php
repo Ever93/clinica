@@ -128,10 +128,15 @@
         $telf = $value['telefono'];
         $telfwhat = substr($telf, 1);
 
-          echo '
+          echo '<div style="position:absolute; right:20px; bottom:90px;">
+
+                  <h5>Horario: '.$value["horaE"].' a '.$value["horaS"].' hs</h5>
+                  <h6>Direccion: '.$value["direccion"].'</h6>
+                  <h6>Telefono: '.$value["telefono"].'</h6>
+                </div>
                 
                 <div style="position:absolute; right:20px; bottom:40px;">
-
+                 
                   <a href="https://api.whatsapp.com/send/?phone=595'.$telfwhat.'" target="_blank"><FONT SIZE=4><b>Contactenos</b></font>
 
                   <img src="Vistas/img/whatsapp.png">
