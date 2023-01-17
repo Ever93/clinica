@@ -115,7 +115,7 @@
      
     </section>
 
-    <div id="inferiorcontacto">
+    <div style="position:absolute; right:20px; bottom:40px;">
       <a href="https://api.whatsapp.com/send/?phone=595971104575" target="_blank"><FONT SIZE=4><b>Contactenos</b></font>
         <img src="Vistas/img/whatsapp.png">
       </a>
