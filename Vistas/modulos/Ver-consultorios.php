@@ -51,7 +51,7 @@ if($_SESSION["rol"] != "Paciente"){
 
                                 foreach($doctores as $key => $value){
 
-                                    echo '<a href="Doctor/'.$value["id"].'" style="color: black;"><p>'.$value["apellido"].' '.$value["nombre"].'</p></a>';
+                                    echo '<a href="Doctor/'.$value["id"].'" style="color: black;"><p>'.$value["nombre"].' '.$value["apellido"].'</p></a>';
                                 }
                          
                             echo '</div>

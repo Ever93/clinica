@@ -47,6 +47,7 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador"){
                             <th>Consultorio</th>
                             <th>Usuario</th>
                             <th>Contraseña</th>
+                            <th>Horario</th>
                             <th>Editar / Borrar</th>
 
                         </tr>
@@ -63,9 +64,9 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador"){
                         $resultado = DoctoresC::VerDoctoresC($columna, $valor);
 
                         foreach ($resultado as $key => $value) {
-
+                            //Ver tabla de datos del doctor
                             echo '<tr>
-
+                                
                                 <td>'.($key+1).'</td>
                                 <td>'.$value["apellido"].'</td>
                                 <td>'.$value["nombre"].'</td>
@@ -92,6 +93,8 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador"){
                                 <td>'.$value["usuario"].'</td>
 
                                 <td>'.$value["clave"].'</td>
+
+                                <td>'.$value["horarioE"].' a '.$value["horarioS"].'</td>
                                 
                                 <td>
 

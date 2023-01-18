@@ -31,7 +31,7 @@
           <?php
           echo '<a href="http://localhost/clinica/cancelar-Cita">';
           ?>
-            <i class="fa fa-calendar-check-o"></i>
+            <i class="fa fa-times"></i>
             <span>Cancelar Cita</span>
           </a>
         </li>
